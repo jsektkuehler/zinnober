@@ -229,7 +229,7 @@
             return;
         }
 
-        const TO      = 'anfrage@zinnoberpizza.com'; // ← replace with actual address
+        const TO      = 'hallo@zinnoberpizza.com';
         const type    = form.eventType.value;
         const subject = encodeURIComponent(`Catering-Anfrage – ${type} – ${form.name.value.trim()}`);
         const body    = encodeURIComponent([

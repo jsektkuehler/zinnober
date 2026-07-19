@@ -10,10 +10,10 @@
     <meta property="og:description" content="Live gebackene Pizza für euer Event. Neapolitanisch, vegetarisch, handgemacht.">
     <meta property="og:type" content="website">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — DM Sans body only; Napoleon headings are self-hosted in /fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -24,7 +24,10 @@
     ====================================================================== -->
     <header class="site-header" id="header">
         <nav class="nav-inner">
-            <a href="#" class="nav-logo">Zinnober Pizza</a>
+            <a href="#" class="nav-logo">
+                <img src="images/logo.png" alt="Zinnober Pizza" class="nav-logo-img">
+                <span>Zinnober Pizza</span>
+            </a>
             <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
@@ -117,111 +120,56 @@
     <section class="s-events" id="catering">
         <div class="container">
 
-            <div class="section-header">
-                <span class="section-tag reveal">Für jedes Event</span>
-                <h2 class="section-title reveal" style="--reveal-delay: 80ms">Das passende Pizza&#8209;Catering</h2>
-                <p class="section-sub reveal" style="--reveal-delay: 160ms">Ob Hochzeit im Grünen, Firmenfeier oder Geburtstag – wir backen frische Pizza direkt vor Ort und machen dein Event zu einem besonderen Erlebnis.</p>
+            <div class="events-intro reveal">
+                <span class="section-tag">Catering für deine Veranstaltung</span>
+                <h2 class="section-title">Frische Pizza direkt<br>auf dein Event.</h2>
+                <p class="events-intro-text">Handgemachte, vegetarische Pizza – live gebacken im mobilen Steinofen, direkt vor euren Gästen. Für Events jeder Größe in Leipzig und ganz Sachsen.</p>
+                <p class="events-location">
+                    <span>📍</span>
+                    Verfügbar in Sachsen &amp; Umgebung: Leipzig, Dresden, Chemnitz, Halle – weitere Regionen auf Anfrage
+                </p>
             </div>
 
-            <!-- 6 Event Cards -->
-            <div class="events-grid">
+            <div class="events-body">
 
-                <article class="event-card reveal">
-                    <div class="event-card-img">
-                        <!-- Replace: images/event-hochzeit.jpg (4:3) -->
-                        <div class="img-ph" data-label="event-hochzeit.jpg · 4:3" aria-hidden="true"></div>
-                    </div>
-                    <div class="event-card-body">
-                        <span class="event-icon" aria-hidden="true">💍</span>
-                        <h3>Hochzeiten</h3>
-                        <p>Romantisches Live-Catering für euren schönsten Tag. Frisch gebacken, direkt vor euren Gästen.</p>
-                    </div>
-                </article>
+                <div class="events-col reveal">
+                    <h3 class="events-col-title">Eventformate</h3>
+                    <ul class="events-list">
+                        <li>Hochzeits-Catering</li>
+                        <li>Firmenfeiern &amp; Business Events</li>
+                        <li>Geburtstage &amp; Jubiläen</li>
+                        <li>Sommerfeste &amp; Stadtfeste</li>
+                        <li>Private Feiern &amp; Gartenpartys</li>
+                        <li>Festivals &amp; Kulturveranstaltungen</li>
+                        <li>After-Work &amp; Team-Events</li>
+                        <li>Weihnachtsfeiern &amp; Wintermärkte</li>
+                        <li>Sportveranstaltungen &amp; Vereinsfeste</li>
+                    </ul>
+                </div>
 
-                <article class="event-card reveal" style="--reveal-delay: 80ms">
-                    <div class="event-card-img">
-                        <!-- Replace: images/event-firma.jpg (4:3) -->
-                        <div class="img-ph" data-label="event-firma.jpg · 4:3" aria-hidden="true"></div>
-                    </div>
-                    <div class="event-card-body">
-                        <span class="event-icon" aria-hidden="true">🏢</span>
-                        <h3>Firmenfeiern</h3>
-                        <p>Perfekt für Sommerfeste, Weihnachtsfeiern und Business Events. Professionell und entspannt.</p>
-                    </div>
-                </article>
+                <div class="events-col reveal" style="--reveal-delay: 120ms">
+                    <h3 class="events-col-title">Details</h3>
+                    <ul class="events-list">
+                        <li>Live gebacken bei bis zu 450 °C – direkt vor Ort im mobilen Steinofen</li>
+                        <li>Ab 30 Personen – nach oben offen</li>
+                        <li>Platzbedarf: ca. 4 × 4 m – Stromanschluss optional</li>
+                        <li>Aufbauzeit: ca. 1–1,5 Stunden vor Eventbeginn</li>
+                        <li>Pappteller &amp; Servietten inklusive</li>
+                        <li>Menü nach Wunsch: 4–6 Pizzasorten aus unserem Angebot</li>
+                        <li>Flexible Einsatzdauer – wir passen uns eurem Ablauf an</li>
+                    </ul>
 
-                <article class="event-card reveal" style="--reveal-delay: 160ms">
-                    <div class="event-card-img">
-                        <!-- Replace: images/event-geburtstag.jpg (4:3) -->
-                        <div class="img-ph" data-label="event-geburtstag.jpg · 4:3" aria-hidden="true"></div>
+                    <div class="events-note">
+                        <span class="events-note-icon" aria-hidden="true">💡</span>
+                        <p>Vegane Optionen sowie glutenfreier Teig sind nach Rücksprache möglich.</p>
                     </div>
-                    <div class="event-card-body">
-                        <span class="event-icon" aria-hidden="true">🎉</span>
-                        <h3>Geburtstage</h3>
-                        <p>Entspannt feiern – wir kümmern uns um das Essen. Für unvergessliche Geburtstagsfeiern.</p>
-                    </div>
-                </article>
-
-                <article class="event-card reveal">
-                    <div class="event-card-img">
-                        <!-- Replace: images/event-privat.jpg (4:3) -->
-                        <div class="img-ph" data-label="event-privat.jpg · 4:3" aria-hidden="true"></div>
-                    </div>
-                    <div class="event-card-body">
-                        <span class="event-icon" aria-hidden="true">🍷</span>
-                        <h3>Private Feiern</h3>
-                        <p>Jubiläen, Gartenpartys oder Familienfeste – wir bringen den Steinofen zu euch.</p>
-                    </div>
-                </article>
-
-                <article class="event-card reveal" style="--reveal-delay: 80ms">
-                    <div class="event-card-img">
-                        <!-- Replace: images/event-festival.jpg (4:3) -->
-                        <div class="img-ph" data-label="event-festival.jpg · 4:3" aria-hidden="true"></div>
-                    </div>
-                    <div class="event-card-body">
-                        <span class="event-icon" aria-hidden="true">🎪</span>
-                        <h3>Stadtfeste &amp; Festivals</h3>
-                        <p>Viele Gäste schnell und frisch versorgen – mit Qualität, die begeistert.</p>
-                    </div>
-                </article>
-
-                <article class="event-card reveal" style="--reveal-delay: 160ms">
-                    <div class="event-card-img">
-                        <!-- Replace: images/event-individuell.jpg (4:3) -->
-                        <div class="img-ph" data-label="event-individuell.jpg · 4:3" aria-hidden="true"></div>
-                    </div>
-                    <div class="event-card-body">
-                        <span class="event-icon" aria-hidden="true">❤️</span>
-                        <h3>Individuelle Events</h3>
-                        <p>Fast jedes Event lässt sich mit unserem Pizza-Catering kombinieren. Sprecht uns an.</p>
-                    </div>
-                </article>
+                </div>
 
             </div>
 
-            <!-- 4 Info Cards -->
-            <div class="event-info-grid">
-                <div class="event-info-card reveal">
-                    <span class="event-info-icon" aria-hidden="true">👥</span>
-                    <strong>ab 30 Personen</strong>
-                    <span>Mindestgröße für unsere Caterings</span>
-                </div>
-                <div class="event-info-card reveal" style="--reveal-delay: 80ms">
-                    <span class="event-info-icon" aria-hidden="true">📍</span>
-                    <strong>Leipzig &amp; Sachsen</strong>
-                    <span>Andere Regionen auf Anfrage</span>
-                </div>
-                <div class="event-info-card reveal" style="--reveal-delay: 160ms">
-                    <span class="event-info-icon" aria-hidden="true">🔥</span>
-                    <strong>Mobiler Steinofen</strong>
-                    <span>Frisch gebacken direkt vor euren Gästen</span>
-                </div>
-                <div class="event-info-card reveal" style="--reveal-delay: 240ms">
-                    <span class="event-info-icon" aria-hidden="true">⏰</span>
-                    <strong>Flexible Dauer</strong>
-                    <span>Wir passen uns eurem Event an</span>
-                </div>
+            <div class="events-cta reveal">
+                <p>Preise auf Anfrage – wir erstellen euch gern ein individuelles Angebot.</p>
+                <a href="#anfrage" class="btn btn-primary">Jetzt anfragen</a>
             </div>
 
         </div>
@@ -661,7 +609,7 @@
                             <span class="contact-channel-icon" aria-hidden="true">✉️</span>
                             <div>
                                 <strong>E-Mail</strong>
-                                <a href="mailto:anfrage@zinnoberpizza.com">anfrage@zinnoberpizza.com</a>
+                                <a href="mailto:hallo@zinnoberpizza.com">hallo@zinnoberpizza.com</a>
                             </div>
                         </li>
                     </ul>
