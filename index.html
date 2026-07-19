@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zinnober Pizza – Mobiles Catering Leipzig</title>
+    <meta name="description" content="Handgemachte vegetarische Pizza für euer Event in Leipzig und Sachsen. Neapolitanisch, vegetarisch, leidenschaftlich.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <header class="site-header" id="header">
+        <nav class="nav-container">
+            <a href="#" class="nav-logo">Zinnober Pizza</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#catering">Catering</a></li>
+                <li><a href="#pizzen">Pizzen</a></li>
+                <li><a href="#konzept">Konzept</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#anfrage" class="nav-cta">Anfrage</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== HERO SLIDER ===== -->
+    <section class="hero" id="hero" aria-label="Titelbild">
+        <div class="slider" id="slider" aria-hidden="true">
+            <!-- Replace slide1.jpg – slide5.jpg with your own high-res photos (recommended: 1920×1080px or larger) -->
+            <div class="slide active" style="background-image: url('images/slide1.jpg')"></div>
+            <div class="slide" style="background-image: url('images/slide2.jpg')"></div>
+            <div class="slide" style="background-image: url('images/slide3.jpg')"></div>
+            <div class="slide" style="background-image: url('images/slide4.jpg')"></div>
+            <div class="slide" style="background-image: url('images/slide5.jpg')"></div>
+        </div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Mobiles Pizza Catering · Leipzig</p>
+            <h1 class="hero-title">obacht.<br>hier gibts<br>gute pizza.</h1>
+            <p class="hero-subtitle">Neapolitanisch, vegetarisch, handgemacht – für euer Event in Leipzig und ganz Sachsen.</p>
+            <a href="#anfrage" class="btn btn-primary">Anfrage stellen</a>
+        </div>
+        <div class="slider-controls" aria-label="Slider-Steuerung">
+            <button class="slider-btn" id="sliderPrev" aria-label="Vorheriges Bild">&#8592;</button>
+            <div class="slider-dots" id="sliderDots" role="tablist"></div>
+            <button class="slider-btn" id="sliderNext" aria-label="Nächstes Bild">&#8594;</button>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">&#8595;</div>
+    </section>
+
+    <!-- ===== CATERING ===== -->
+    <section class="section catering-section" id="catering">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Mobiles Catering</span>
+                <h2 class="section-title">Pizza für euer Event</h2>
+                <p class="section-subtitle">Wir bringen den Holzofengeschmack direkt zu euch – egal ob Hochzeit, Firmenfeier oder Festival.</p>
+            </div>
+
+            <div class="catering-grid">
+                <div class="catering-card">
+                    <div class="catering-icon">&#10084;</div>
+                    <h3>Hochzeiten</h3>
+                    <p>Unvergessliches Catering für euren besonderen Tag. Frisch gebackene Pizza direkt vom Ofen für eure Gäste.</p>
+                </div>
+                <div class="catering-card">
+                    <div class="catering-icon">&#9733;</div>
+                    <h3>Firmenfeiern</h3>
+                    <p>Teamevents, Sommerfeste, Weihnachtsfeiern – wir machen jede Firmenfeier zu einem Genuss.</p>
+                </div>
+                <div class="catering-card">
+                    <div class="catering-icon">&#9835;</div>
+                    <h3>Festivals &amp; Märkte</h3>
+                    <p>Bühnenreife Pizza für Festivals, Stadtfeste und Märkte in ganz Sachsen und darüber hinaus.</p>
+                </div>
+                <div class="catering-card">
+                    <div class="catering-icon">&#127381;</div>
+                    <h3>Private Feiern</h3>
+                    <p>Geburtstage, Gartenpartys, Jubiläen – feiert mit Pizza aus dem mobilen Ofen bei euch zu Hause.</p>
+                </div>
+            </div>
+
+            <div class="catering-details">
+                <div class="detail-item">
+                    <strong>Einsatzgebiet</strong>
+                    <span>Leipzig, Sachsen, Thüringen, Sachsen-Anhalt</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Kapazität</strong>
+                    <span>Für kleine und große Gruppen</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Ernährung</strong>
+                    <span>Vollständig vegetarisch &amp; vegan möglich</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="section gallery-section" id="galerie">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Eindrücke</span>
+                <h2 class="section-title">Pizza &amp; Momente</h2>
+            </div>
+        </div>
+        <!-- Replace gallery1.jpg – gallery6.jpg with your own photos -->
+        <div class="gallery-grid">
+            <div class="gallery-item large" style="background-image: url('images/gallery1.jpg')" role="img" aria-label="Galerie Bild 1"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery2.jpg')" role="img" aria-label="Galerie Bild 2"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery3.jpg')" role="img" aria-label="Galerie Bild 3"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery4.jpg')" role="img" aria-label="Galerie Bild 4"></div>
+            <div class="gallery-item large" style="background-image: url('images/gallery5.jpg')" role="img" aria-label="Galerie Bild 5"></div>
+            <div class="gallery-item" style="background-image: url('images/gallery6.jpg')" role="img" aria-label="Galerie Bild 6"></div>
+        </div>
+    </section>
+
+    <!-- ===== MENU / PIZZEN ===== -->
+    <section class="section menu-section" id="pizzen">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Unsere Pizzen</span>
+                <h2 class="section-title">Klassisch &amp; Kreativ</h2>
+                <p class="section-subtitle">Alle Pizzen mit 48 Stunden gereiftem Teig, regionalen Zutaten und italienischer Qualität.</p>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Margherita</h3>
+                        <span class="menu-badge veg">V</span>
+                    </div>
+                    <p>San Marzano Tomate, Fior di Latte, frisches Basilikum, Olivenöl extra vergine</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Rossa Piccante</h3>
+                        <span class="menu-badge veg">V</span>
+                    </div>
+                    <p>Tomatensauce, Chili, Knoblauch, Pecorino, frischer Rucola</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Bianca</h3>
+                        <span class="menu-badge veg">V</span>
+                    </div>
+                    <p>Fior di Latte, Ricotta, Knoblauch, Rosmarin, Olivenöl</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Patate</h3>
+                        <span class="menu-badge vegan">Ve</span>
+                    </div>
+                    <p>Kartoffel, Rosmarin, Fleur de Sel, natives Olivenöl extra</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Funghi</h3>
+                        <span class="menu-badge veg">V</span>
+                    </div>
+                    <p>Tomatensauce, gemischte Pilze, Thymian, Parmesan</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Stagionale</h3>
+                        <span class="menu-badge seasonal">Saisonal</span>
+                    </div>
+                    <p>Unsere saisonale Kreation – fragt uns nach der aktuellen Zusammensetzung.</p>
+                </div>
+            </div>
+
+            <p class="menu-note">Alle Pizzen vegetarisch. Vegane Optionen verfügbar. Das Catering-Menü stimmen wir individuell mit euch ab.</p>
+        </div>
+    </section>
+
+    <!-- ===== KONZEPT ===== -->
+    <section class="section konzept-section" id="konzept">
+        <div class="container">
+            <div class="konzept-layout">
+                <!-- Replace konzept.jpg with a fitting photo -->
+                <div class="konzept-image" style="background-image: url('images/konzept.jpg')" role="img" aria-label="Zinnober Pizza Konzept"></div>
+                <div class="konzept-content">
+                    <span class="section-tag">Unser Konzept</span>
+                    <h2 class="section-title">beste zutaten. klassisch &amp; kreativ. lang gereifter teig.</h2>
+                    <p>Wir backen leidenschaftlich gerne vegetarische Pizza und das am liebsten für euch. Unser Teig reift mindestens 48 Stunden – das ergibt komplexen Geschmack, perfekte Textur und eine besonders gute Bekömmlichkeit.</p>
+                    <p>Wir kombinieren regionale Produkte mit ausgesuchten italienischen Zutaten: San Marzano Tomaten, Fior di Latte aus Kampanien, kaltgepresstes Olivenöl. Kein Kompromiss bei der Qualität.</p>
+                    <div class="konzept-pillars">
+                        <div class="pillar">
+                            <strong>48 h+</strong>
+                            <span>Teigreifung</span>
+                        </div>
+                        <div class="pillar">
+                            <strong>100 %</strong>
+                            <span>Vegetarisch</span>
+                        </div>
+                        <div class="pillar">
+                            <strong>Regional</strong>
+                            <span>&amp; Italienisch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Häufige Fragen</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Wie weit fahrt ihr für Events?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Wir sind in Leipzig und der gesamten Region aktiv – Sachsen, Thüringen und Sachsen-Anhalt sind unser Einzugsgebiet. Für weiter entfernte Events nehmt einfach Kontakt auf.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Ab wie vielen Personen lohnt sich ein Catering?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Wir bieten Catering für kleine private Feiern bis hin zu großen Festivals an. Kontaktiert uns einfach und wir finden gemeinsam eine Lösung.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Bietet ihr auch vegane Optionen an?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Ja! Unsere Pizza ist vollständig vegetarisch und wir bieten zahlreiche vegane Varianten an. Das Catering-Menü stimmen wir individuell mit euch ab.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Wie lange im Voraus sollten wir anfragen?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Je früher, desto besser – besonders in der Hochsaison (Mai–Oktober) sind unsere Termine schnell belegt. Für Hochzeiten empfehlen wir mindestens 6 Monate Vorlauf.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Was braucht ihr vor Ort?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Wir bringen alles mit – Ofen, Equipment, Zutaten. Wir benötigen lediglich einen geeigneten Stellplatz und Stromanschluss. Details klären wir gerne im Vorfeld mit euch.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Kann ich ein individuelles Menü zusammenstellen?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Absolut. Wir erstellen für jedes Event ein maßgeschneidertes Angebot. Teilt uns eure Wünsche mit und wir entwickeln gemeinsam das perfekte Menü.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ANFRAGE / CONTACT ===== -->
+    <section class="section anfrage-section" id="anfrage">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kontakt</span>
+                <h2 class="section-title">Jetzt anfragen</h2>
+                <p class="section-subtitle">Erzählt uns von eurem Event – wir melden uns so schnell wie möglich bei euch.</p>
+            </div>
+
+            <!-- Form submits via mailto – replace with Formspree or similar for a proper backend -->
+            <form class="anfrage-form" id="anfrageForm" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Euer Name" autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail *</label>
+                        <input type="email" id="email" name="email" required placeholder="eure@email.de" autocomplete="email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eventType">Art des Events *</label>
+                        <select id="eventType" name="eventType" required>
+                            <option value="">Bitte wählen</option>
+                            <option value="Hochzeit">Hochzeit</option>
+                            <option value="Firmenfeier">Firmenfeier</option>
+                            <option value="Festival / Markt">Festival / Markt</option>
+                            <option value="Private Feier">Private Feier</option>
+                            <option value="Sonstiges">Sonstiges</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Datum des Events</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guests">Ungefähre Personenanzahl</label>
+                        <input type="number" id="guests" name="guests" min="1" placeholder="z.B. 80">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Ort</label>
+                        <input type="text" id="location" name="location" placeholder="Stadt / Adresse">
+                    </div>
+                </div>
+                <div class="form-group form-group--full">
+                    <label for="message">Nachricht</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Erzählt uns mehr über euer Event, besondere Wünsche, Fragen ..."></textarea>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary">Anfrage absenden</button>
+                </div>
+            </form>
+
+            <div class="contact-links">
+                <a href="https://www.instagram.com/zinnober_pizza" target="_blank" rel="noopener noreferrer" class="contact-social">
+                    &#64;zinnober_pizza auf Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="footer-logo">Zinnober Pizza</span>
+                    <p>Mobiles Pizza Catering.<br>Neapolitanisch. Vegetarisch. Handgemacht.</p>
+                    <a href="https://www.instagram.com/zinnober_pizza" target="_blank" rel="noopener noreferrer" class="footer-social">
+                        &#64;zinnober_pizza
+                    </a>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#catering">Catering</a></li>
+                        <li><a href="#pizzen">Pizzen</a></li>
+                        <li><a href="#konzept">Konzept</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#anfrage">Anfrage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>Einsatzgebiet</h4>
+                    <p>Leipzig und Umgebung<br>Sachsen · Thüringen<br>Sachsen-Anhalt</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- Add your Impressum and Datenschutz pages or link to them here -->
+                <p>&copy; 2024 Zinnober Pizza &nbsp;&middot;&nbsp; <a href="impressum.html">Impressum</a> &nbsp;&middot;&nbsp; <a href="datenschutz.html">Datenschutz</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
