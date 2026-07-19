@@ -1,143 +1,149 @@
 /* =============================================================================
    ZINNOBER PIZZA — Main JavaScript
+   Modules: nav · hero slider · scroll reveal · faq · gallery lightbox · form
 ============================================================================= */
 
 'use strict';
 
-// ─────────────────────────────────────────────
-// 1. Navigation: scroll effect + mobile toggle
-// ─────────────────────────────────────────────
+
+// ─────────────────────────────────────────────────────────────
+// 1. Navigation – scroll effect + mobile toggle
+// ─────────────────────────────────────────────────────────────
 (function initNav() {
-    const header    = document.getElementById('header');
-    const toggle    = document.getElementById('navToggle');
-    const navLinks  = document.getElementById('navLinks');
+    const header   = document.getElementById('header');
+    const toggle   = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (!header) return;
 
-    // Scroll → darken header
-    const onScroll = () => {
-        header.classList.toggle('scrolled', window.scrollY > 60);
-    };
+    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // run once on load
+    onScroll();
 
-    // Mobile hamburger toggle
     toggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
+        const open = navLinks.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(open));
     });
 
-    // Close nav when any link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('open');
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            navLinks.classList.remove('is-open');
             toggle.setAttribute('aria-expanded', 'false');
         });
     });
 
-    // Close nav when clicking outside
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', e => {
         if (!header.contains(e.target)) {
-            navLinks.classList.remove('open');
+            navLinks.classList.remove('is-open');
             toggle.setAttribute('aria-expanded', 'false');
         }
     });
 })();
 
 
-// ─────────────────────────────────────────────
-// 2. Hero Slider
-// ─────────────────────────────────────────────
-(function initSlider() {
-    const slides        = document.querySelectorAll('.slide');
-    const dotsContainer = document.getElementById('sliderDots');
-    const btnPrev       = document.getElementById('sliderPrev');
-    const btnNext       = document.getElementById('sliderNext');
+// ─────────────────────────────────────────────────────────────
+// 2. Hero Slider – auto-advance, dots, prev/next, touch/swipe
+// ─────────────────────────────────────────────────────────────
+(function initHeroSlider() {
+    const slides      = document.querySelectorAll('.hero-slide');
+    const dotsWrap    = document.getElementById('sliderDots');
+    const btnPrev     = document.getElementById('sliderPrev');
+    const btnNext     = document.getElementById('sliderNext');
+    if (!slides.length || !dotsWrap) return;
 
-    if (!slides.length) return;
-
-    const INTERVAL = 5500; // ms between auto-advances
+    const INTERVAL = 5800;
     let current    = 0;
     let timer      = null;
-    let touchStartX = 0;
+    let touchX     = 0;
 
     // Build dots
     slides.forEach((_, i) => {
         const dot = document.createElement('button');
-        dot.className = 'dot' + (i === 0 ? ' active' : '');
+        dot.className   = 'slider-dot' + (i === 0 ? ' is-active' : '');
         dot.setAttribute('aria-label', `Bild ${i + 1}`);
         dot.setAttribute('role', 'tab');
         dot.addEventListener('click', () => goTo(i));
-        dotsContainer.appendChild(dot);
+        dotsWrap.appendChild(dot);
     });
 
-    const getDots = () => dotsContainer.querySelectorAll('.dot');
+    const getDots = () => dotsWrap.querySelectorAll('.slider-dot');
 
-    function goTo(index) {
+    function goTo(idx) {
         slides[current].classList.remove('active');
-        getDots()[current].classList.remove('active');
-        current = (index + slides.length) % slides.length;
+        getDots()[current].classList.remove('is-active');
+        current = (idx + slides.length) % slides.length;
         slides[current].classList.add('active');
-        getDots()[current].classList.add('active');
+        getDots()[current].classList.add('is-active');
     }
 
     function next() { goTo(current + 1); }
     function prev() { goTo(current - 1); }
 
-    function startTimer() {
-        clearInterval(timer);
-        timer = setInterval(next, INTERVAL);
-    }
+    function startTimer() { clearInterval(timer); timer = setInterval(next, INTERVAL); }
     function stopTimer()  { clearInterval(timer); }
 
-    btnNext.addEventListener('click', () => { next(); startTimer(); });
-    btnPrev.addEventListener('click', () => { prev(); startTimer(); });
+    if (btnNext) btnNext.addEventListener('click', () => { next(); startTimer(); });
+    if (btnPrev) btnPrev.addEventListener('click', () => { prev(); startTimer(); });
 
-    // Pause on hover
-    const hero = document.querySelector('.hero');
-    hero.addEventListener('mouseenter', stopTimer);
-    hero.addEventListener('mouseleave', startTimer);
+    const hero = document.querySelector('.s-hero');
+    if (hero) {
+        hero.addEventListener('mouseenter', stopTimer);
+        hero.addEventListener('mouseleave', startTimer);
+        hero.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+        hero.addEventListener('touchend', e => {
+            const d = touchX - e.changedTouches[0].clientX;
+            if (Math.abs(d) > 44) { d > 0 ? next() : prev(); startTimer(); }
+        }, { passive: true });
+        hero.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight') { next(); startTimer(); }
+            if (e.key === 'ArrowLeft')  { prev(); startTimer(); }
+        });
+    }
 
-    // Touch / swipe support
-    hero.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-    hero.addEventListener('touchend', (e) => {
-        const delta = touchStartX - e.changedTouches[0].clientX;
-        if (Math.abs(delta) > 48) {
-            delta > 0 ? next() : prev();
-            startTimer();
-        }
-    }, { passive: true });
-
-    // Keyboard navigation when hero is focused
-    hero.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') { next(); startTimer(); }
-        if (e.key === 'ArrowLeft')  { prev(); startTimer(); }
-    });
-
-    // Start
     startTimer();
 })();
 
 
-// ─────────────────────────────────────────────
-// 3. FAQ Accordion
-// ─────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
+// 3. Scroll Reveal – IntersectionObserver
+// ─────────────────────────────────────────────────────────────
+(function initReveal() {
+    if (!('IntersectionObserver' in window)) {
+        // Fallback: show everything immediately
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+        return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+
+
+// ─────────────────────────────────────────────────────────────
+// 4. FAQ Accordion
+// ─────────────────────────────────────────────────────────────
 (function initFaq() {
-    const questions = document.querySelectorAll('.faq-question');
+    const questions = document.querySelectorAll('.faq-q');
 
     questions.forEach(btn => {
         btn.addEventListener('click', () => {
-            const isOpen   = btn.getAttribute('aria-expanded') === 'true';
-            const answer   = btn.nextElementSibling;
+            const isOpen = btn.getAttribute('aria-expanded') === 'true';
+            const answer = btn.nextElementSibling;
 
             // Close all
             questions.forEach(b => {
                 b.setAttribute('aria-expanded', 'false');
-                const a = b.nextElementSibling;
-                a.style.maxHeight = null;
+                b.nextElementSibling.style.maxHeight = null;
             });
 
-            // Open this one if it was closed
+            // Open clicked if it was closed
             if (!isOpen) {
                 btn.setAttribute('aria-expanded', 'true');
                 answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -147,78 +153,117 @@
 })();
 
 
-// ─────────────────────────────────────────────
-// 4. Contact Form → mailto fallback
-//    Replace this with Formspree, Netlify Forms,
-//    or another backend for production.
-// ─────────────────────────────────────────────
-(function initForm() {
-    const form = document.getElementById('anfrageForm');
-    if (!form) return;
+// ─────────────────────────────────────────────────────────────
+// 5. Gallery Lightbox
+// ─────────────────────────────────────────────────────────────
+(function initLightbox() {
+    const lightbox    = document.getElementById('lightbox');
+    const lbImg       = document.getElementById('lightboxImg');
+    const lbClose     = document.getElementById('lightboxClose');
+    const lbPrev      = document.getElementById('lightboxPrev');
+    const lbNext      = document.getElementById('lightboxNext');
+    const cells       = [...document.querySelectorAll('.gallery-cell[data-src]')];
+    if (!lightbox || !cells.length) return;
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    let currentIdx = 0;
 
-        // Basic client-side validation
-        const required = form.querySelectorAll('[required]');
-        let valid = true;
-        required.forEach(field => {
-            field.classList.remove('field-error');
-            if (!field.value.trim()) {
-                field.classList.add('field-error');
-                valid = false;
-            }
-        });
-        if (!valid) return;
+    function open(idx) {
+        currentIdx = idx;
+        const src = cells[idx].dataset.src;
+        lbImg.src = src;
+        lbImg.alt = cells[idx].getAttribute('aria-label') || '';
+        lightbox.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+    }
 
-        const name      = form.name.value.trim();
-        const email     = form.email.value.trim();
-        const eventType = form.eventType.value;
-        const date      = form.date.value;
-        const guests    = form.guests.value;
-        const location  = form.location.value.trim();
-        const message   = form.message.value.trim();
+    function close() {
+        lightbox.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+    }
 
-        // ── Replace the email address below with your actual contact address ──
-        const TO      = 'anfrage@zinnoberpizza.com';
-        const subject = encodeURIComponent(`Catering-Anfrage – ${eventType} – ${name}`);
-        const body    = encodeURIComponent(
-            `Name: ${name}\n` +
-            `E-Mail: ${email}\n` +
-            `Event: ${eventType}\n` +
-            (date     ? `Datum: ${date}\n`              : '') +
-            (guests   ? `Personen: ${guests}\n`          : '') +
-            (location ? `Ort: ${location}\n`             : '') +
-            (message  ? `\nNachricht:\n${message}`        : '')
-        );
+    function showPrev() { open((currentIdx - 1 + cells.length) % cells.length); }
+    function showNext() { open((currentIdx + 1) % cells.length); }
 
-        window.location.href = `mailto:${TO}?subject=${subject}&body=${body}`;
+    cells.forEach((cell, i) => {
+        cell.addEventListener('click', () => open(i));
+        cell.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); } });
+    });
+
+    lbClose.addEventListener('click', close);
+    lbPrev.addEventListener('click', showPrev);
+    lbNext.addEventListener('click', showNext);
+
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+
+    document.addEventListener('keydown', e => {
+        if (lightbox.hasAttribute('hidden')) return;
+        if (e.key === 'Escape')     close();
+        if (e.key === 'ArrowLeft')  showPrev();
+        if (e.key === 'ArrowRight') showNext();
     });
 })();
 
 
-// ─────────────────────────────────────────────
-// 5. Smooth reveal on scroll (Intersection Observer)
-// ─────────────────────────────────────────────
-(function initReveal() {
-    if (!('IntersectionObserver' in window)) return;
+// ─────────────────────────────────────────────────────────────
+// 6. Contact Form – mailto fallback (replace with Formspree
+//    or a backend handler for production)
+// ─────────────────────────────────────────────────────────────
+(function initContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
 
-    const targets = document.querySelectorAll(
-        '.catering-card, .menu-item, .faq-item, .gallery-item, .konzept-content, .konzept-image'
-    );
+    form.addEventListener('submit', e => {
+        e.preventDefault();
 
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                io.unobserve(entry.target);
-            }
+        // Validate required fields
+        const required = form.querySelectorAll('[required]');
+        let valid = true;
+        required.forEach(field => {
+            field.classList.remove('is-error');
+            if (!field.value.trim()) { field.classList.add('is-error'); valid = false; }
         });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        if (!valid) {
+            form.querySelector('.is-error').focus();
+            return;
+        }
 
-    targets.forEach((el, i) => {
-        el.style.setProperty('--reveal-delay', `${(i % 4) * 80}ms`);
-        el.classList.add('reveal');
-        io.observe(el);
+        const TO      = 'anfrage@zinnoberpizza.com'; // ← replace with actual address
+        const type    = form.eventType.value;
+        const subject = encodeURIComponent(`Catering-Anfrage – ${type} – ${form.name.value.trim()}`);
+        const body    = encodeURIComponent([
+            `Name: ${form.name.value.trim()}`,
+            `E-Mail: ${form.email.value.trim()}`,
+            form.phone.value    ? `Telefon: ${form.phone.value.trim()}`     : '',
+            form.guests.value   ? `Personen: ${form.guests.value}`           : '',
+            `Event-Art: ${type}`,
+            form.eventDate.value ? `Datum: ${form.eventDate.value}`          : '',
+            form.message.value  ? `\nNachricht:\n${form.message.value.trim()}` : '',
+        ].filter(Boolean).join('\n'));
+
+        window.location.href = `mailto:${TO}?subject=${subject}&body=${body}`;
+    });
+
+    // Clear error state on input
+    form.querySelectorAll('input, select, textarea').forEach(field => {
+        field.addEventListener('input', () => field.classList.remove('is-error'));
+    });
+})();
+
+
+// ─────────────────────────────────────────────────────────────
+// 7. Smooth background image loading for gallery cells
+//    (replaces placeholder once real image is available)
+// ─────────────────────────────────────────────────────────────
+(function loadGalleryImages() {
+    document.querySelectorAll('.gallery-cell[data-src]').forEach(cell => {
+        const src = cell.dataset.src;
+        const img = new Image();
+        img.onload = () => {
+            cell.style.backgroundImage = `url('${src}')`;
+            cell.querySelector('.img-ph')?.remove();
+        };
+        img.src = src;
     });
 })();

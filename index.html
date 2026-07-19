@@ -3,377 +3,708 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zinnober Pizza – Mobiles Catering Leipzig</title>
-    <meta name="description" content="Handgemachte vegetarische Pizza für euer Event in Leipzig und Sachsen. Neapolitanisch, vegetarisch, leidenschaftlich.">
+    <title>Zinnober Pizza – Mobiles Catering Leipzig & Sachsen</title>
+    <meta name="description" content="Live gebackene Pizza für Hochzeiten, Firmenfeiern und Events in Leipzig und Sachsen. Neapolitanisch, vegetarisch, handgemacht – direkt aus dem mobilen Steinofen.">
+    <meta name="keywords" content="Pizza Catering Leipzig, mobiles Catering Sachsen, Hochzeit Catering, Firmenfeier Catering, vegetarisches Catering, Steinofen Pizza">
+    <meta property="og:title" content="Zinnober Pizza – Mobiles Pizza Catering">
+    <meta property="og:description" content="Live gebackene Pizza für euer Event. Neapolitanisch, vegetarisch, handgemacht.">
+    <meta property="og:type" content="website">
 
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- ===== NAVIGATION ===== -->
+    <!-- =====================================================================
+         NAVIGATION
+    ====================================================================== -->
     <header class="site-header" id="header">
-        <nav class="nav-container">
+        <nav class="nav-inner">
             <a href="#" class="nav-logo">Zinnober Pizza</a>
             <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#catering">Catering</a></li>
-                <li><a href="#pizzen">Pizzen</a></li>
                 <li><a href="#konzept">Konzept</a></li>
+                <li><a href="#galerie">Galerie</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><a href="#anfrage" class="nav-cta">Anfrage</a></li>
+                <li><a href="#anfrage" class="nav-cta">Anfrage stellen</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- ===== HERO SLIDER ===== -->
-    <section class="hero" id="hero" aria-label="Titelbild">
-        <div class="slider" id="slider" aria-hidden="true">
-            <!-- Replace slide1.jpg – slide5.jpg with your own high-res photos (recommended: 1920×1080px or larger) -->
-            <div class="slide active" style="background-image: url('images/slide1.jpg')"></div>
-            <div class="slide" style="background-image: url('images/slide2.jpg')"></div>
-            <div class="slide" style="background-image: url('images/slide3.jpg')"></div>
-            <div class="slide" style="background-image: url('images/slide4.jpg')"></div>
-            <div class="slide" style="background-image: url('images/slide5.jpg')"></div>
+
+    <!-- =====================================================================
+         HERO – Photo Slider
+         Images: images/slide1.jpg … slide5.jpg (recommended: ≥1920×1080px)
+    ====================================================================== -->
+    <section class="s-hero" id="hero" aria-label="Hero">
+
+        <div class="hero-slider" id="heroSlider" aria-hidden="true">
+            <div class="hero-slide active" style="background-image: url('images/slide1.jpg')"></div>
+            <div class="hero-slide" style="background-image: url('images/slide2.jpg')"></div>
+            <div class="hero-slide" style="background-image: url('images/slide3.jpg')"></div>
+            <div class="hero-slide" style="background-image: url('images/slide4.jpg')"></div>
+            <div class="hero-slide" style="background-image: url('images/slide5.jpg')"></div>
         </div>
         <div class="hero-overlay" aria-hidden="true"></div>
-        <div class="hero-content">
+
+        <div class="hero-body">
             <p class="hero-eyebrow">Mobiles Pizza Catering · Leipzig</p>
-            <h1 class="hero-title">obacht.<br>hier gibts<br>gute pizza.</h1>
-            <p class="hero-subtitle">Neapolitanisch, vegetarisch, handgemacht – für euer Event in Leipzig und ganz Sachsen.</p>
-            <a href="#anfrage" class="btn btn-primary">Anfrage stellen</a>
+            <h1 class="hero-title">Live gebackene<br>Pizza für dein<br>Event.</h1>
+            <p class="hero-sub">Neapolitanisch, vegetarisch, handgemacht – direkt aus dem mobilen Steinofen.</p>
+            <a href="#anfrage" class="btn btn-primary">Catering anfragen</a>
+            <ul class="hero-badges" aria-label="Auf einen Blick">
+                <li>🔥 ab 30 Personen</li>
+                <li>📍 Leipzig & Sachsen</li>
+                <li>⭐️ 5-Sterne-Service</li>
+            </ul>
         </div>
-        <div class="slider-controls" aria-label="Slider-Steuerung">
+
+        <div class="hero-slider-controls" aria-label="Slider-Steuerung">
             <button class="slider-btn" id="sliderPrev" aria-label="Vorheriges Bild">&#8592;</button>
             <div class="slider-dots" id="sliderDots" role="tablist"></div>
             <button class="slider-btn" id="sliderNext" aria-label="Nächstes Bild">&#8594;</button>
         </div>
-        <div class="scroll-indicator" aria-hidden="true">&#8595;</div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+            <span></span>
+        </div>
+
     </section>
 
-    <!-- ===== CATERING ===== -->
-    <section class="section catering-section" id="catering">
+
+    <!-- =====================================================================
+         TRUST BAR
+    ====================================================================== -->
+    <div class="s-trust" aria-label="Auf einen Blick">
+        <div class="trust-inner">
+            <div class="trust-item reveal">
+                <span class="trust-stars" aria-label="5 von 5 Sternen">★★★★★</span>
+                <strong class="trust-value" data-count="5" data-decimals="1">5,0</strong>
+                <span class="trust-label">Sterne Bewertung</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item reveal" style="--reveal-delay: 80ms">
+                <span class="trust-icon" aria-hidden="true">🍕</span>
+                <strong class="trust-value" data-count="150">150+</strong>
+                <span class="trust-label">erfolgreiche Caterings</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item reveal" style="--reveal-delay: 160ms">
+                <span class="trust-icon" aria-hidden="true">💍</span>
+                <strong class="trust-value">Hochzeiten &amp; Firmen</strong>
+                <span class="trust-label">Geburtstage &amp; Events</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item reveal" style="--reveal-delay: 240ms">
+                <span class="trust-icon" aria-hidden="true">📍</span>
+                <strong class="trust-value">Leipzig</strong>
+                <span class="trust-label">Sachsen &amp; Umgebung</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====================================================================
+         EVENTS
+    ====================================================================== -->
+    <section class="s-events" id="catering">
+        <div class="container">
+
+            <div class="section-header">
+                <span class="section-tag reveal">Für jedes Event</span>
+                <h2 class="section-title reveal" style="--reveal-delay: 80ms">Das passende Pizza&#8209;Catering</h2>
+                <p class="section-sub reveal" style="--reveal-delay: 160ms">Ob Hochzeit im Grünen, Firmenfeier oder Geburtstag – wir backen frische Pizza direkt vor Ort und machen dein Event zu einem besonderen Erlebnis.</p>
+            </div>
+
+            <!-- 6 Event Cards -->
+            <div class="events-grid">
+
+                <article class="event-card reveal">
+                    <div class="event-card-img">
+                        <!-- Replace: images/event-hochzeit.jpg (4:3) -->
+                        <div class="img-ph" data-label="event-hochzeit.jpg · 4:3" aria-hidden="true"></div>
+                    </div>
+                    <div class="event-card-body">
+                        <span class="event-icon" aria-hidden="true">💍</span>
+                        <h3>Hochzeiten</h3>
+                        <p>Romantisches Live-Catering für euren schönsten Tag. Frisch gebacken, direkt vor euren Gästen.</p>
+                    </div>
+                </article>
+
+                <article class="event-card reveal" style="--reveal-delay: 80ms">
+                    <div class="event-card-img">
+                        <!-- Replace: images/event-firma.jpg (4:3) -->
+                        <div class="img-ph" data-label="event-firma.jpg · 4:3" aria-hidden="true"></div>
+                    </div>
+                    <div class="event-card-body">
+                        <span class="event-icon" aria-hidden="true">🏢</span>
+                        <h3>Firmenfeiern</h3>
+                        <p>Perfekt für Sommerfeste, Weihnachtsfeiern und Business Events. Professionell und entspannt.</p>
+                    </div>
+                </article>
+
+                <article class="event-card reveal" style="--reveal-delay: 160ms">
+                    <div class="event-card-img">
+                        <!-- Replace: images/event-geburtstag.jpg (4:3) -->
+                        <div class="img-ph" data-label="event-geburtstag.jpg · 4:3" aria-hidden="true"></div>
+                    </div>
+                    <div class="event-card-body">
+                        <span class="event-icon" aria-hidden="true">🎉</span>
+                        <h3>Geburtstage</h3>
+                        <p>Entspannt feiern – wir kümmern uns um das Essen. Für unvergessliche Geburtstagsfeiern.</p>
+                    </div>
+                </article>
+
+                <article class="event-card reveal">
+                    <div class="event-card-img">
+                        <!-- Replace: images/event-privat.jpg (4:3) -->
+                        <div class="img-ph" data-label="event-privat.jpg · 4:3" aria-hidden="true"></div>
+                    </div>
+                    <div class="event-card-body">
+                        <span class="event-icon" aria-hidden="true">🍷</span>
+                        <h3>Private Feiern</h3>
+                        <p>Jubiläen, Gartenpartys oder Familienfeste – wir bringen den Steinofen zu euch.</p>
+                    </div>
+                </article>
+
+                <article class="event-card reveal" style="--reveal-delay: 80ms">
+                    <div class="event-card-img">
+                        <!-- Replace: images/event-festival.jpg (4:3) -->
+                        <div class="img-ph" data-label="event-festival.jpg · 4:3" aria-hidden="true"></div>
+                    </div>
+                    <div class="event-card-body">
+                        <span class="event-icon" aria-hidden="true">🎪</span>
+                        <h3>Stadtfeste &amp; Festivals</h3>
+                        <p>Viele Gäste schnell und frisch versorgen – mit Qualität, die begeistert.</p>
+                    </div>
+                </article>
+
+                <article class="event-card reveal" style="--reveal-delay: 160ms">
+                    <div class="event-card-img">
+                        <!-- Replace: images/event-individuell.jpg (4:3) -->
+                        <div class="img-ph" data-label="event-individuell.jpg · 4:3" aria-hidden="true"></div>
+                    </div>
+                    <div class="event-card-body">
+                        <span class="event-icon" aria-hidden="true">❤️</span>
+                        <h3>Individuelle Events</h3>
+                        <p>Fast jedes Event lässt sich mit unserem Pizza-Catering kombinieren. Sprecht uns an.</p>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- 4 Info Cards -->
+            <div class="event-info-grid">
+                <div class="event-info-card reveal">
+                    <span class="event-info-icon" aria-hidden="true">👥</span>
+                    <strong>ab 30 Personen</strong>
+                    <span>Mindestgröße für unsere Caterings</span>
+                </div>
+                <div class="event-info-card reveal" style="--reveal-delay: 80ms">
+                    <span class="event-info-icon" aria-hidden="true">📍</span>
+                    <strong>Leipzig &amp; Sachsen</strong>
+                    <span>Andere Regionen auf Anfrage</span>
+                </div>
+                <div class="event-info-card reveal" style="--reveal-delay: 160ms">
+                    <span class="event-info-icon" aria-hidden="true">🔥</span>
+                    <strong>Mobiler Steinofen</strong>
+                    <span>Frisch gebacken direkt vor euren Gästen</span>
+                </div>
+                <div class="event-info-card reveal" style="--reveal-delay: 240ms">
+                    <span class="event-info-icon" aria-hidden="true">⏰</span>
+                    <strong>Flexible Dauer</strong>
+                    <span>Wir passen uns eurem Event an</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =====================================================================
+         KONZEPT / WHY ZINNOBER
+    ====================================================================== -->
+    <section class="s-why" id="konzept">
+        <div class="container">
+
+            <div class="why-layout">
+                <div class="why-text">
+                    <span class="section-tag reveal">Unser Konzept</span>
+                    <h2 class="section-title reveal" style="--reveal-delay: 80ms">Warum Zinnober?</h2>
+                    <p class="reveal" style="--reveal-delay: 160ms">Wir backen leidenschaftlich gerne vegetarische Pizza – am liebsten für euch. Unser Teig reift mindestens 48 Stunden und ergibt komplexen Geschmack, perfekte Textur und eine besonders gute Bekömmlichkeit. Wir kombinieren regionale Produkte mit ausgesuchten italienischen Zutaten.</p>
+                </div>
+                <div class="why-cards">
+                    <div class="why-card reveal">
+                        <span class="why-card-icon" aria-hidden="true">🍕</span>
+                        <h3>Frischer Teig</h3>
+                        <p>48 Stunden gereift für perfekten Geschmack und beste Bekömmlichkeit.</p>
+                    </div>
+                    <div class="why-card reveal" style="--reveal-delay: 80ms">
+                        <span class="why-card-icon" aria-hidden="true">🔥</span>
+                        <h3>Steinofen vor Ort</h3>
+                        <p>Live gebacken – ein Erlebnis für eure Gäste und unschlagbare Frische.</p>
+                    </div>
+                    <div class="why-card reveal" style="--reveal-delay: 160ms">
+                        <span class="why-card-icon" aria-hidden="true">🌿</span>
+                        <h3>Hochwertige Zutaten</h3>
+                        <p>San Marzano Tomaten, Fior di Latte aus Kampanien, kaltgepresstes Olivenöl.</p>
+                    </div>
+                    <div class="why-card reveal" style="--reveal-delay: 240ms">
+                        <span class="why-card-icon" aria-hidden="true">🤝</span>
+                        <h3>Persönliche Betreuung</h3>
+                        <p>Von der ersten Anfrage bis zum letzten Stück Pizza – wir sind für euch da.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =====================================================================
+         PROCESS / SO LÄUFT ES AB
+    ====================================================================== -->
+    <section class="s-process">
+        <div class="container">
+
+            <div class="section-header">
+                <span class="section-tag reveal">Der Ablauf</span>
+                <h2 class="section-title reveal" style="--reveal-delay: 80ms">So läuft es ab</h2>
+            </div>
+
+            <div class="process-steps">
+
+                <div class="process-step reveal">
+                    <div class="process-number" aria-hidden="true">1</div>
+                    <div class="process-icon" aria-hidden="true">✉️</div>
+                    <h3>Anfrage</h3>
+                    <p>Ihr schickt uns eine kurze Anfrage mit Datum, Ort und ungefährer Personenzahl.</p>
+                </div>
+
+                <div class="process-arrow" aria-hidden="true"></div>
+
+                <div class="process-step reveal" style="--reveal-delay: 100ms">
+                    <div class="process-number" aria-hidden="true">2</div>
+                    <div class="process-icon" aria-hidden="true">📋</div>
+                    <h3>Planung</h3>
+                    <p>Wir besprechen euer Event, stellen das Menü zusammen und bestätigen den Termin.</p>
+                </div>
+
+                <div class="process-arrow" aria-hidden="true"></div>
+
+                <div class="process-step reveal" style="--reveal-delay: 200ms">
+                    <div class="process-number" aria-hidden="true">3</div>
+                    <div class="process-icon" aria-hidden="true">🚚</div>
+                    <h3>Wir kommen</h3>
+                    <p>Wir bauen den mobilen Steinofen auf und bereiten alles vor – ihr müsst nichts tun.</p>
+                </div>
+
+                <div class="process-arrow" aria-hidden="true"></div>
+
+                <div class="process-step reveal" style="--reveal-delay: 300ms">
+                    <div class="process-number" aria-hidden="true">4</div>
+                    <div class="process-icon" aria-hidden="true">🍕</div>
+                    <h3>Pizza genießen</h3>
+                    <p>Frisch gebackene Pizza direkt aus dem Ofen – ihr und eure Gäste genießt den Abend.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =====================================================================
+         GALLERY
+         Images: images/gallery-01.jpg … gallery-09.jpg (mix of 4:5, 16:9, 1:1)
+    ====================================================================== -->
+    <section class="s-gallery" id="galerie">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Mobiles Catering</span>
-                <h2 class="section-title">Pizza für euer Event</h2>
-                <p class="section-subtitle">Wir bringen den Holzofengeschmack direkt zu euch – egal ob Hochzeit, Firmenfeier oder Festival.</p>
-            </div>
-
-            <div class="catering-grid">
-                <div class="catering-card">
-                    <div class="catering-icon">&#10084;</div>
-                    <h3>Hochzeiten</h3>
-                    <p>Unvergessliches Catering für euren besonderen Tag. Frisch gebackene Pizza direkt vom Ofen für eure Gäste.</p>
-                </div>
-                <div class="catering-card">
-                    <div class="catering-icon">&#9733;</div>
-                    <h3>Firmenfeiern</h3>
-                    <p>Teamevents, Sommerfeste, Weihnachtsfeiern – wir machen jede Firmenfeier zu einem Genuss.</p>
-                </div>
-                <div class="catering-card">
-                    <div class="catering-icon">&#9835;</div>
-                    <h3>Festivals &amp; Märkte</h3>
-                    <p>Bühnenreife Pizza für Festivals, Stadtfeste und Märkte in ganz Sachsen und darüber hinaus.</p>
-                </div>
-                <div class="catering-card">
-                    <div class="catering-icon">&#127381;</div>
-                    <h3>Private Feiern</h3>
-                    <p>Geburtstage, Gartenpartys, Jubiläen – feiert mit Pizza aus dem mobilen Ofen bei euch zu Hause.</p>
-                </div>
-            </div>
-
-            <div class="catering-details">
-                <div class="detail-item">
-                    <strong>Einsatzgebiet</strong>
-                    <span>Leipzig, Sachsen, Thüringen, Sachsen-Anhalt</span>
-                </div>
-                <div class="detail-item">
-                    <strong>Kapazität</strong>
-                    <span>Für kleine und große Gruppen</span>
-                </div>
-                <div class="detail-item">
-                    <strong>Ernährung</strong>
-                    <span>Vollständig vegetarisch &amp; vegan möglich</span>
-                </div>
+                <span class="section-tag reveal">Eindrücke</span>
+                <h2 class="section-title reveal" style="--reveal-delay: 80ms">Pizza &amp; Momente</h2>
             </div>
         </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Col A tall -->
+            <div class="gallery-cell gallery-cell--tall reveal" data-src="images/gallery-01.jpg" aria-label="Galerie Bild 1" role="img" tabindex="0">
+                <div class="img-ph" data-label="gallery-01.jpg · 4:5" aria-hidden="true"></div>
+            </div>
+            <!-- Col B top -->
+            <div class="gallery-cell reveal" style="--reveal-delay: 60ms" data-src="images/gallery-02.jpg" aria-label="Galerie Bild 2" role="img" tabindex="0">
+                <div class="img-ph" data-label="gallery-02.jpg · 16:9" aria-hidden="true"></div>
+            </div>
+            <!-- Col C top wide -->
+            <div class="gallery-cell gallery-cell--wide reveal" style="--reveal-delay: 120ms" data-src="images/gallery-03.jpg" aria-label="Galerie Bild 3" role="img" tabindex="0">
+                <div class="img-ph" data-label="gallery-03.jpg · 16:9" aria-hidden="true"></div>
+            </div>
+            <!-- Col B mid -->
+            <div class="gallery-cell reveal" style="--reveal-delay: 80ms" data-src="images/gallery-04.jpg" aria-label="Galerie Bild 4" role="img" tabindex="0">
+                <div class="img-ph" data-label="gallery-04.jpg · 1:1" aria-hidden="true"></div>
+            </div>
+            <!-- Col C mid -->
+            <div class="gallery-cell reveal" style="--reveal-delay: 140ms" data-src="images/gallery-05.jpg" aria-label="Galerie Bild 5" role="img" tabindex="0">
+                <div class="img-ph" data-label="gallery-05.jpg · 1:1" aria-hidden="true"></div>
+            </div>
+            <!-- Col D tall -->
+            <div class="gallery-cell gallery-cell--tall reveal" style="--reveal-delay: 180ms" data-src="images/gallery-06.jpg" aria-label="Galerie Bild 6" role="img" tabindex="0">
+                <div class="img-ph" data-label="gallery-06.jpg · 4:5" aria-hidden="true"></div>
+            </div>
+            <!-- Bottom wide -->
+            <div class="gallery-cell gallery-cell--wide reveal" style="--reveal-delay: 100ms" data-src="images/gallery-07.jpg" aria-label="Galerie Bild 7" role="img" tabindex="0">
+                <div class="img-ph" data-label="gallery-07.jpg · 16:9" aria-hidden="true"></div>
+            </div>
+            <!-- Bottom sq -->
+            <div class="gallery-cell reveal" style="--reveal-delay: 160ms" data-src="images/gallery-08.jpg" aria-label="Galerie Bild 8" role="img" tabindex="0">
+                <div class="img-ph" data-label="gallery-08.jpg · 1:1" aria-hidden="true"></div>
+            </div>
+            <!-- Bottom sq -->
+            <div class="gallery-cell reveal" style="--reveal-delay: 220ms" data-src="images/gallery-09.jpg" aria-label="Galerie Bild 9" role="img" tabindex="0">
+                <div class="img-ph" data-label="gallery-09.jpg · 1:1" aria-hidden="true"></div>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bild vergrößert" hidden>
+            <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">&times;</button>
+            <button class="lightbox-prev" id="lightboxPrev" aria-label="Vorheriges Bild">&#8592;</button>
+            <button class="lightbox-next" id="lightboxNext" aria-label="Nächstes Bild">&#8594;</button>
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+
     </section>
 
-    <!-- ===== GALLERY ===== -->
-    <section class="section gallery-section" id="galerie">
+
+    <!-- =====================================================================
+         REVIEWS
+    ====================================================================== -->
+    <section class="s-reviews">
         <div class="container">
+
             <div class="section-header">
-                <span class="section-tag">Eindrücke</span>
-                <h2 class="section-title">Pizza &amp; Momente</h2>
-            </div>
-        </div>
-        <!-- Replace gallery1.jpg – gallery6.jpg with your own photos -->
-        <div class="gallery-grid">
-            <div class="gallery-item large" style="background-image: url('images/gallery1.jpg')" role="img" aria-label="Galerie Bild 1"></div>
-            <div class="gallery-item" style="background-image: url('images/gallery2.jpg')" role="img" aria-label="Galerie Bild 2"></div>
-            <div class="gallery-item" style="background-image: url('images/gallery3.jpg')" role="img" aria-label="Galerie Bild 3"></div>
-            <div class="gallery-item" style="background-image: url('images/gallery4.jpg')" role="img" aria-label="Galerie Bild 4"></div>
-            <div class="gallery-item large" style="background-image: url('images/gallery5.jpg')" role="img" aria-label="Galerie Bild 5"></div>
-            <div class="gallery-item" style="background-image: url('images/gallery6.jpg')" role="img" aria-label="Galerie Bild 6"></div>
-        </div>
-    </section>
-
-    <!-- ===== MENU / PIZZEN ===== -->
-    <section class="section menu-section" id="pizzen">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Unsere Pizzen</span>
-                <h2 class="section-title">Klassisch &amp; Kreativ</h2>
-                <p class="section-subtitle">Alle Pizzen mit 48 Stunden gereiftem Teig, regionalen Zutaten und italienischer Qualität.</p>
+                <span class="section-tag reveal">Was andere sagen</span>
+                <h2 class="section-title reveal" style="--reveal-delay: 80ms">Begeisterte Gäste</h2>
             </div>
 
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <h3>Margherita</h3>
-                        <span class="menu-badge veg">V</span>
-                    </div>
-                    <p>San Marzano Tomate, Fior di Latte, frisches Basilikum, Olivenöl extra vergine</p>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <h3>Rossa Piccante</h3>
-                        <span class="menu-badge veg">V</span>
-                    </div>
-                    <p>Tomatensauce, Chili, Knoblauch, Pecorino, frischer Rucola</p>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <h3>Bianca</h3>
-                        <span class="menu-badge veg">V</span>
-                    </div>
-                    <p>Fior di Latte, Ricotta, Knoblauch, Rosmarin, Olivenöl</p>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <h3>Patate</h3>
-                        <span class="menu-badge vegan">Ve</span>
-                    </div>
-                    <p>Kartoffel, Rosmarin, Fleur de Sel, natives Olivenöl extra</p>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <h3>Funghi</h3>
-                        <span class="menu-badge veg">V</span>
-                    </div>
-                    <p>Tomatensauce, gemischte Pilze, Thymian, Parmesan</p>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <h3>Stagionale</h3>
-                        <span class="menu-badge seasonal">Saisonal</span>
-                    </div>
-                    <p>Unsere saisonale Kreation – fragt uns nach der aktuellen Zusammensetzung.</p>
-                </div>
-            </div>
+            <div class="reviews-grid">
 
-            <p class="menu-note">Alle Pizzen vegetarisch. Vegane Optionen verfügbar. Das Catering-Menü stimmen wir individuell mit euch ab.</p>
-        </div>
-    </section>
-
-    <!-- ===== KONZEPT ===== -->
-    <section class="section konzept-section" id="konzept">
-        <div class="container">
-            <div class="konzept-layout">
-                <!-- Replace konzept.jpg with a fitting photo -->
-                <div class="konzept-image" style="background-image: url('images/konzept.jpg')" role="img" aria-label="Zinnober Pizza Konzept"></div>
-                <div class="konzept-content">
-                    <span class="section-tag">Unser Konzept</span>
-                    <h2 class="section-title">beste zutaten. klassisch &amp; kreativ. lang gereifter teig.</h2>
-                    <p>Wir backen leidenschaftlich gerne vegetarische Pizza und das am liebsten für euch. Unser Teig reift mindestens 48 Stunden – das ergibt komplexen Geschmack, perfekte Textur und eine besonders gute Bekömmlichkeit.</p>
-                    <p>Wir kombinieren regionale Produkte mit ausgesuchten italienischen Zutaten: San Marzano Tomaten, Fior di Latte aus Kampanien, kaltgepresstes Olivenöl. Kein Kompromiss bei der Qualität.</p>
-                    <div class="konzept-pillars">
-                        <div class="pillar">
-                            <strong>48 h+</strong>
-                            <span>Teigreifung</span>
+                <article class="review-card reveal">
+                    <div class="review-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                    <blockquote class="review-text">"Die Pizza war absolut der Höhepunkt unserer Hochzeit! Der Ofen direkt auf dem Hof hat eine unglaubliche Atmosphäre geschaffen – alle Gäste waren begeistert."</blockquote>
+                    <footer class="review-author">
+                        <!-- Replace: images/review-maria.jpg (1:1) -->
+                        <div class="review-avatar img-ph" data-label="review-maria.jpg · 1:1" aria-hidden="true"></div>
+                        <div>
+                            <strong>Maria K.</strong>
+                            <span>Hochzeit 2024</span>
                         </div>
-                        <div class="pillar">
-                            <strong>100 %</strong>
-                            <span>Vegetarisch</span>
+                    </footer>
+                </article>
+
+                <article class="review-card reveal" style="--reveal-delay: 80ms">
+                    <div class="review-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                    <blockquote class="review-text">"Unser Team-Event war ein voller Erfolg, auch dank Zinnober Pizza. Unkomplizierte Absprache, perfekte Umsetzung und die Pizza war schlicht köstlich."</blockquote>
+                    <footer class="review-author">
+                        <div class="review-avatar img-ph" data-label="review-thomas.jpg · 1:1" aria-hidden="true"></div>
+                        <div>
+                            <strong>Thomas B.</strong>
+                            <span>Firmenfeier 2024</span>
                         </div>
-                        <div class="pillar">
-                            <strong>Regional</strong>
-                            <span>&amp; Italienisch</span>
+                    </footer>
+                </article>
+
+                <article class="review-card reveal" style="--reveal-delay: 160ms">
+                    <div class="review-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                    <blockquote class="review-text">"Zu meinem 30. Geburtstag war Zinnober Pizza einfach die beste Entscheidung. Meine Gäste haben geschwärmt und der Teig ist wirklich outstanding."</blockquote>
+                    <footer class="review-author">
+                        <div class="review-avatar img-ph" data-label="review-sabrina.jpg · 1:1" aria-hidden="true"></div>
+                        <div>
+                            <strong>Sabrina M.</strong>
+                            <span>Geburtstag 2023</span>
                         </div>
-                    </div>
-                </div>
+                    </footer>
+                </article>
+
+                <article class="review-card reveal">
+                    <div class="review-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                    <blockquote class="review-text">"Wir haben Zinnober für unsere Gartenparty gebucht – fantastisch! Die Kinder liebten es zuzusehen, wie die Pizza im Ofen gebacken wird. Sehr empfehlenswert!"</blockquote>
+                    <footer class="review-author">
+                        <div class="review-avatar img-ph" data-label="review-richter.jpg · 1:1" aria-hidden="true"></div>
+                        <div>
+                            <strong>Familie Richter</strong>
+                            <span>Gartenparty 2024</span>
+                        </div>
+                    </footer>
+                </article>
+
+                <article class="review-card reveal" style="--reveal-delay: 80ms">
+                    <div class="review-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                    <blockquote class="review-text">"Als Veranstalter war ich sehr froh, Zinnober gefunden zu haben. Zuverlässig, schnell und die Qualität ist konstant hoch – auch bei großem Andrang auf dem Stadtfest."</blockquote>
+                    <footer class="review-author">
+                        <div class="review-avatar img-ph" data-label="review-lars.jpg · 1:1" aria-hidden="true"></div>
+                        <div>
+                            <strong>Lars K.</strong>
+                            <span>Stadtfest 2023</span>
+                        </div>
+                    </footer>
+                </article>
+
+                <article class="review-card reveal" style="--reveal-delay: 160ms">
+                    <div class="review-stars" aria-label="5 von 5 Sternen">★★★★★</div>
+                    <blockquote class="review-text">"Für unsere Verlobungsfeier haben wir Zinnober gebucht – es war traumhaft. Das Live-Backen war das absolute Highlight des Abends. Alle waren begeistert!"</blockquote>
+                    <footer class="review-author">
+                        <div class="review-avatar img-ph" data-label="review-anna.jpg · 1:1" aria-hidden="true"></div>
+                        <div>
+                            <strong>Anna &amp; Florian</strong>
+                            <span>Verlobungsfeier 2024</span>
+                        </div>
+                    </footer>
+                </article>
+
             </div>
+
         </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
-    <section class="section faq-section" id="faq">
+
+    <!-- =====================================================================
+         FAQ
+    ====================================================================== -->
+    <section class="s-faq" id="faq">
         <div class="container">
+
             <div class="section-header">
-                <span class="section-tag">FAQ</span>
-                <h2 class="section-title">Häufige Fragen</h2>
+                <span class="section-tag reveal">FAQ</span>
+                <h2 class="section-title reveal" style="--reveal-delay: 80ms">Häufige Fragen</h2>
             </div>
 
             <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        Wie weit fahrt ihr für Events?
-                        <span class="faq-icon" aria-hidden="true">+</span>
+
+                <div class="faq-item reveal">
+                    <button class="faq-q" aria-expanded="false">
+                        Ab wie vielen Personen bietet ihr Catering an?
+                        <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-answer" role="region">
-                        <p>Wir sind in Leipzig und der gesamten Region aktiv – Sachsen, Thüringen und Sachsen-Anhalt sind unser Einzugsgebiet. Für weiter entfernte Events nehmt einfach Kontakt auf.</p>
+                    <div class="faq-a" role="region">
+                        <p>Wir bieten Catering ab 30 Personen an. Nach oben hin gibt es kaum Grenzen – wir haben schon für mehrere hundert Gäste gleichzeitig gebacken. Für kleinere Events sprecht uns einfach an, wir finden gemeinsam eine Lösung.</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        Ab wie vielen Personen lohnt sich ein Catering?
-                        <span class="faq-icon" aria-hidden="true">+</span>
+
+                <div class="faq-item reveal" style="--reveal-delay: 60ms">
+                    <button class="faq-q" aria-expanded="false">
+                        Wie lange dauert ein Catering-Einsatz?
+                        <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-answer" role="region">
-                        <p>Wir bieten Catering für kleine private Feiern bis hin zu großen Festivals an. Kontaktiert uns einfach und wir finden gemeinsam eine Lösung.</p>
+                    <div class="faq-a" role="region">
+                        <p>Das hängt ganz von eurem Event ab. In der Regel planen wir 2–4 Stunden aktives Catering ein, plus Auf- und Abbau. Wir passen uns eurem Zeitplan flexibel an und besprechen alles im Vorfeld mit euch.</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        Bietet ihr auch vegane Optionen an?
-                        <span class="faq-icon" aria-hidden="true">+</span>
+
+                <div class="faq-item reveal" style="--reveal-delay: 120ms">
+                    <button class="faq-q" aria-expanded="false">
+                        Wo seid ihr unterwegs?
+                        <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-answer" role="region">
-                        <p>Ja! Unsere Pizza ist vollständig vegetarisch und wir bieten zahlreiche vegane Varianten an. Das Catering-Menü stimmen wir individuell mit euch ab.</p>
+                    <div class="faq-a" role="region">
+                        <p>Unser Haupteinsatzgebiet ist Leipzig und ganz Sachsen. Wir sind auch in Thüringen und Sachsen-Anhalt aktiv. Für weiter entfernte Events – auch über diese Grenzen hinaus – nehmt einfach Kontakt auf, wir sind offen für Anfragen.</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        Wie lange im Voraus sollten wir anfragen?
-                        <span class="faq-icon" aria-hidden="true">+</span>
+
+                <div class="faq-item reveal" style="--reveal-delay: 180ms">
+                    <button class="faq-q" aria-expanded="false">
+                        Gibt es vegetarische und vegane Optionen?
+                        <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-answer" role="region">
-                        <p>Je früher, desto besser – besonders in der Hochsaison (Mai–Oktober) sind unsere Termine schnell belegt. Für Hochzeiten empfehlen wir mindestens 6 Monate Vorlauf.</p>
+                    <div class="faq-a" role="region">
+                        <p>Ja! Unsere gesamte Speisekarte ist vollständig vegetarisch. Darüber hinaus bieten wir zahlreiche vegane Varianten an – von der klassischen Rossa ohne Käse bis zur Patate mit Olivenöl und Rosmarin. Das genaue Menü stimmen wir individuell mit euch ab.</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        Was braucht ihr vor Ort?
-                        <span class="faq-icon" aria-hidden="true">+</span>
+
+                <div class="faq-item reveal" style="--reveal-delay: 240ms">
+                    <button class="faq-q" aria-expanded="false">
+                        Wie weit im Voraus sollten wir buchen?
+                        <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-answer" role="region">
-                        <p>Wir bringen alles mit – Ofen, Equipment, Zutaten. Wir benötigen lediglich einen geeigneten Stellplatz und Stromanschluss. Details klären wir gerne im Vorfeld mit euch.</p>
+                    <div class="faq-a" role="region">
+                        <p>Je früher, desto besser – besonders in der Hochsaison von Mai bis Oktober sind unsere Termine schnell vergeben. Für Hochzeiten empfehlen wir mindestens 6 Monate Vorlauf, für andere Events 4–8 Wochen. Für kurzfristige Anfragen lohnt es sich trotzdem nachzufragen!</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        Kann ich ein individuelles Menü zusammenstellen?
-                        <span class="faq-icon" aria-hidden="true">+</span>
+
+                <div class="faq-item reveal" style="--reveal-delay: 300ms">
+                    <button class="faq-q" aria-expanded="false">
+                        Können individuelle Wünsche berücksichtigt werden?
+                        <span class="faq-icon" aria-hidden="true"></span>
                     </button>
-                    <div class="faq-answer" role="region">
-                        <p>Absolut. Wir erstellen für jedes Event ein maßgeschneidertes Angebot. Teilt uns eure Wünsche mit und wir entwickeln gemeinsam das perfekte Menü.</p>
+                    <div class="faq-a" role="region">
+                        <p>Absolut. Wir erstellen für jedes Event ein maßgeschneidertes Angebot. Ob besondere Toppings, ein spezielles Menü oder eine bestimmte Anzahl an Pizzavarianten – teilt uns eure Wünsche mit und wir entwickeln gemeinsam das perfekte Catering.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ===== ANFRAGE / CONTACT ===== -->
-    <section class="section anfrage-section" id="anfrage">
+
+    <!-- =====================================================================
+         FINAL CTA
+         Background: images/cta-bg.jpg (16:9, replace placeholder)
+    ====================================================================== -->
+    <section class="s-cta-final" style="background-image: url('images/cta-bg.jpg')">
+        <div class="cta-final-overlay" aria-hidden="true"></div>
+        <div class="cta-final-body reveal">
+            <h2>Bereit für frische Pizza<br>auf deinem Event?</h2>
+            <p>Wir planen jedes Catering individuell – von der kleinen Geburtstagsfeier bis zum großen Firmenevent. Gemeinsam machen wir dein Event zu einem kulinarischen Erlebnis.</p>
+            <a href="#anfrage" class="btn btn-primary">Catering anfragen</a>
+            <span class="cta-final-note">Antwort innerhalb von 24 Stunden.</span>
+        </div>
+    </section>
+
+
+    <!-- =====================================================================
+         CONTACT
+    ====================================================================== -->
+    <section class="s-contact" id="anfrage">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Kontakt</span>
-                <h2 class="section-title">Jetzt anfragen</h2>
-                <p class="section-subtitle">Erzählt uns von eurem Event – wir melden uns so schnell wie möglich bei euch.</p>
-            </div>
+            <div class="contact-layout">
 
-            <!-- Form submits via mailto – replace with Formspree or similar for a proper backend -->
-            <form class="anfrage-form" id="anfrageForm" novalidate>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="Euer Name" autocomplete="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-Mail *</label>
-                        <input type="email" id="email" name="email" required placeholder="eure@email.de" autocomplete="email">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="eventType">Art des Events *</label>
-                        <select id="eventType" name="eventType" required>
-                            <option value="">Bitte wählen</option>
-                            <option value="Hochzeit">Hochzeit</option>
-                            <option value="Firmenfeier">Firmenfeier</option>
-                            <option value="Festival / Markt">Festival / Markt</option>
-                            <option value="Private Feier">Private Feier</option>
-                            <option value="Sonstiges">Sonstiges</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Datum des Events</label>
-                        <input type="date" id="date" name="date">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="guests">Ungefähre Personenanzahl</label>
-                        <input type="number" id="guests" name="guests" min="1" placeholder="z.B. 80">
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Ort</label>
-                        <input type="text" id="location" name="location" placeholder="Stadt / Adresse">
-                    </div>
-                </div>
-                <div class="form-group form-group--full">
-                    <label for="message">Nachricht</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Erzählt uns mehr über euer Event, besondere Wünsche, Fragen ..."></textarea>
-                </div>
-                <div class="form-submit">
-                    <button type="submit" class="btn btn-primary">Anfrage absenden</button>
-                </div>
-            </form>
+                <!-- Form -->
+                <div class="contact-form-col">
+                    <span class="section-tag reveal">Kontakt</span>
+                    <h2 class="section-title reveal" style="--reveal-delay: 80ms">Jetzt Catering anfragen</h2>
 
-            <div class="contact-links">
-                <a href="https://www.instagram.com/zinnober_pizza" target="_blank" rel="noopener noreferrer" class="contact-social">
-                    &#64;zinnober_pizza auf Instagram
-                </a>
+                    <!-- Replace action with Formspree or similar for production -->
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Euer Name" autocomplete="name">
+                            </div>
+                            <div class="form-field">
+                                <label for="email">E-Mail *</label>
+                                <input type="email" id="email" name="email" required placeholder="eure@email.de" autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="phone">Telefon</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+49 …" autocomplete="tel">
+                            </div>
+                            <div class="form-field">
+                                <label for="guests">Personenzahl</label>
+                                <input type="number" id="guests" name="guests" min="1" placeholder="z.B. 80">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="eventType">Art des Events *</label>
+                                <select id="eventType" name="eventType" required>
+                                    <option value="">Bitte wählen</option>
+                                    <option value="Hochzeit">Hochzeit</option>
+                                    <option value="Firmenfeier">Firmenfeier</option>
+                                    <option value="Geburtstag">Geburtstag</option>
+                                    <option value="Private Feier">Private Feier</option>
+                                    <option value="Stadtfest / Festival">Stadtfest / Festival</option>
+                                    <option value="Sonstiges">Sonstiges</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="eventDate">Datum</label>
+                                <input type="date" id="eventDate" name="eventDate">
+                            </div>
+                        </div>
+                        <div class="form-field form-field--full">
+                            <label for="message">Nachricht</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Erzählt uns mehr über euer Event – Ort, besondere Wünsche, Fragen …"></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">Anfrage absenden</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <aside class="contact-info-col">
+                    <h3 class="reveal">So erreicht ihr uns</h3>
+
+                    <ul class="contact-channels">
+                        <li class="reveal">
+                            <span class="contact-channel-icon" aria-hidden="true">📞</span>
+                            <div>
+                                <strong>Telefon</strong>
+                                <!-- Replace with actual phone number -->
+                                <a href="tel:+491234567890">+49 123 456 7890</a>
+                            </div>
+                        </li>
+                        <li class="reveal" style="--reveal-delay: 60ms">
+                            <span class="contact-channel-icon" aria-hidden="true">💬</span>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <a href="https://wa.me/491234567890" target="_blank" rel="noopener noreferrer">Schreib uns direkt</a>
+                            </div>
+                        </li>
+                        <li class="reveal" style="--reveal-delay: 120ms">
+                            <span class="contact-channel-icon" aria-hidden="true">📸</span>
+                            <div>
+                                <strong>Instagram</strong>
+                                <a href="https://www.instagram.com/zinnober_pizza" target="_blank" rel="noopener noreferrer">@zinnober_pizza</a>
+                            </div>
+                        </li>
+                        <li class="reveal" style="--reveal-delay: 180ms">
+                            <span class="contact-channel-icon" aria-hidden="true">✉️</span>
+                            <div>
+                                <strong>E-Mail</strong>
+                                <a href="mailto:anfrage@zinnoberpizza.com">anfrage@zinnoberpizza.com</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="contact-note reveal" style="--reveal-delay: 240ms">
+                        <p>Wir antworten in der Regel innerhalb von 24 Stunden – auch am Wochenende.</p>
+                    </div>
+
+                </aside>
+
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+
+    <!-- =====================================================================
+         FOOTER
+    ====================================================================== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-inner">
                 <div class="footer-brand">
                     <span class="footer-logo">Zinnober Pizza</span>
                     <p>Mobiles Pizza Catering.<br>Neapolitanisch. Vegetarisch. Handgemacht.</p>
-                    <a href="https://www.instagram.com/zinnober_pizza" target="_blank" rel="noopener noreferrer" class="footer-social">
-                        &#64;zinnober_pizza
+                </div>
+                <nav class="footer-nav" aria-label="Footer Navigation">
+                    <a href="#catering">Catering</a>
+                    <a href="#konzept">Konzept</a>
+                    <a href="#galerie">Galerie</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#anfrage">Anfrage</a>
+                </nav>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/zinnober_pizza" target="_blank" rel="noopener noreferrer" aria-label="Instagram @zinnober_pizza">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                        @zinnober_pizza
                     </a>
-                </div>
-                <div class="footer-nav">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="#catering">Catering</a></li>
-                        <li><a href="#pizzen">Pizzen</a></li>
-                        <li><a href="#konzept">Konzept</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#anfrage">Anfrage</a></li>
-                    </ul>
-                </div>
-                <div class="footer-info">
-                    <h4>Einsatzgebiet</h4>
-                    <p>Leipzig und Umgebung<br>Sachsen · Thüringen<br>Sachsen-Anhalt</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <!-- Add your Impressum and Datenschutz pages or link to them here -->
-                <p>&copy; 2024 Zinnober Pizza &nbsp;&middot;&nbsp; <a href="impressum.html">Impressum</a> &nbsp;&middot;&nbsp; <a href="datenschutz.html">Datenschutz</a></p>
+                <p>&copy; 2025 Zinnober Pizza &nbsp;&middot;&nbsp; <a href="impressum.html">Impressum</a> &nbsp;&middot;&nbsp; <a href="datenschutz.html">Datenschutz</a></p>
             </div>
         </div>
     </footer>
