@@ -104,6 +104,73 @@
 
 
 // ─────────────────────────────────────────────────────────────
+// 2b. Pizza Menu Slider – paginated cards, click/swipe to page
+// ─────────────────────────────────────────────────────────────
+(function initMenuSlider() {
+    const track    = document.getElementById('menuTrack');
+    const pages    = track ? track.querySelectorAll('.menu-page') : [];
+    const dotsWrap = document.getElementById('menuDots');
+    const btnPrev  = document.getElementById('menuPrev');
+    const btnNext  = document.getElementById('menuNext');
+    if (!track || !pages.length || !dotsWrap) return;
+
+    let current = 0;
+
+    pages.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'menu-slider-dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', `Pizzen ${i + 1}`);
+        dot.setAttribute('role', 'tab');
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+    });
+
+    const getDots = () => dotsWrap.querySelectorAll('.menu-slider-dot');
+
+    function syncHeight() {
+        track.style.height = pages[current].offsetHeight + 'px';
+    }
+
+    function setActive(i) {
+        current = i;
+        getDots().forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+        syncHeight();
+    }
+
+    function goTo(idx) {
+        const target = Math.max(0, Math.min(idx, pages.length - 1));
+        setActive(target);
+        track.scrollTo({ left: track.clientWidth * target, behavior: 'smooth' });
+    }
+
+    if (btnNext) btnNext.addEventListener('click', () => goTo(current + 1));
+    if (btnPrev) btnPrev.addEventListener('click', () => goTo(current - 1));
+
+    track.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+    });
+
+    let scrollTimer;
+    track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            const idx = Math.round(track.scrollLeft / track.clientWidth);
+            if (idx !== current) setActive(idx);
+        }, 80);
+    }, { passive: true });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(syncHeight, 120);
+    });
+
+    syncHeight();
+})();
+
+
+// ─────────────────────────────────────────────────────────────
 // 3. Scroll Reveal – IntersectionObserver
 // ─────────────────────────────────────────────────────────────
 (function initReveal() {
