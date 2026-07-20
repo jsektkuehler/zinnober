@@ -253,7 +253,27 @@
 
 
 // ─────────────────────────────────────────────────────────────
-// 7. Smooth background image loading for gallery cells
+// 7. Hero word rotator
+// ─────────────────────────────────────────────────────────────
+(function initWordRotator() {
+    const el = document.getElementById('heroWord');
+    if (!el) return;
+    const words = ['live', 'frisch', 'heiß', 'lecker', 'fluffig'];
+    let idx = 0;
+
+    setInterval(() => {
+        el.classList.add('is-fading');
+        setTimeout(() => {
+            idx = (idx + 1) % words.length;
+            el.textContent = words[idx];
+            el.classList.remove('is-fading');
+        }, 350);
+    }, 2500);
+})();
+
+
+// ─────────────────────────────────────────────────────────────
+// 8. Smooth background image loading for gallery cells
 //    (replaces placeholder once real image is available)
 // ─────────────────────────────────────────────────────────────
 (function loadGalleryImages() {

@@ -101,18 +101,25 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Cardboard paper texture — fixed overlay on all sections */
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url('../images/cardboard.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.09;
-    pointer-events: none;
-    z-index: 9998;
-    mix-blend-mode: multiply;
+/* ─────────────────────────────────────────────
+   CARDBOARD TEXTURE — applied to all warm sections
+   Grain SVG + linen fibers + cream gradient stack
+───────────────────────────────────────────── */
+.s-trust,
+.s-events,
+.s-why,
+.s-process,
+.s-gallery,
+.s-reviews,
+.s-contact {
+    background-color: var(--cream);
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.07'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(90deg,
+            rgba(255,255,255,0)    0px,  rgba(255,255,255,0)    5px,
+            rgba(255,246,230,0.10) 6px,  rgba(255,255,255,0)    7px,
+            rgba(160,120,70,0.04)  9px,  rgba(255,255,255,0)    11px),
+        linear-gradient(180deg, #F9F0E3 0%, #F4E8D6 35%, #F0E2CC 70%, #EBDAC2 100%);
 }
 
 img  { max-width: 100%; display: block; }
@@ -245,7 +252,7 @@ p   { line-height: 1.75; }
 .nav-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0;
     font-family: var(--font-display);
     font-size: 1.4rem;
     font-weight: 700;
@@ -256,9 +263,12 @@ p   { line-height: 1.75; }
 .nav-logo-img {
     height: 36px;
     width: auto;
-    mix-blend-mode: screen;
-    filter: brightness(10);
-    opacity: 0.9;
+    flex-shrink: 0;
+}
+.nav-logo span {
+    margin-left: -18px;
+    position: relative;
+    z-index: 1;
 }
 .nav-links {
     display: flex;
@@ -355,31 +365,40 @@ p   { line-height: 1.75; }
 
 /* Content */
 .hero-body {
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 2;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 clamp(24px, 8vw, 100px);
+    padding: calc(var(--nav-h) + 48px) clamp(24px, 8vw, 100px) 80px;
     max-width: 900px;
 }
 .hero-eyebrow {
-    color: var(--gold);
-    font-size: 0.75rem;
-    font-weight: 600;
+    color: rgba(255,255,255,0.68);
+    font-size: 0.72rem;
+    font-weight: 500;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     margin-bottom: 20px;
     animation: fadeUp 0.9s ease 0.2s both;
 }
 .hero-title {
-    font-size: clamp(3.2rem, 9vw, 8rem);
+    font-size: clamp(2.6rem, 5.5vw, 4.8rem);
     font-weight: 700;
     color: var(--white);
-    line-height: 0.97;
+    line-height: 1.05;
     margin-bottom: 28px;
     animation: fadeUp 0.9s ease 0.4s both;
+}
+.hero-word {
+    color: var(--red);
+    display: inline-block;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.hero-word.is-fading {
+    opacity: 0;
+    transform: translateY(-8px);
 }
 .hero-sub {
     color: rgba(255,255,255,0.80);
@@ -388,7 +407,7 @@ p   { line-height: 1.75; }
     margin-bottom: 40px;
     animation: fadeUp 0.9s ease 0.6s both;
 }
-.hero-body .btn { animation: fadeUp 0.9s ease 0.8s both; }
+.hero-body .btn { animation: fadeUp 0.9s ease 0.8s both; align-self: flex-start; }
 
 .hero-badges {
     display: flex;
@@ -482,7 +501,6 @@ p   { line-height: 1.75; }
    3. TRUST BAR
 ───────────────────────────────────────────── */
 .s-trust {
-    background: var(--white);
     padding: clamp(32px, 5vw, 60px) var(--pad-x);
     box-shadow: var(--shadow-sm);
 }
@@ -525,7 +543,6 @@ p   { line-height: 1.75; }
 ───────────────────────────────────────────── */
 .s-events {
     padding-block: var(--pad-section);
-    background: var(--cream);
 }
 
 .events-intro {
@@ -637,7 +654,6 @@ p   { line-height: 1.75; }
 ───────────────────────────────────────────── */
 .s-why {
     padding-block: var(--pad-section);
-    background: var(--white);
 }
 .why-layout {
     display: grid;
@@ -667,7 +683,6 @@ p   { line-height: 1.75; }
     transform: translateY(-4px);
     box-shadow: var(--shadow-sm);
 }
-.why-card-icon { font-size: 1.8rem; display: block; margin-bottom: 12px; line-height: 1; }
 .why-card h3 {
     font-size: 1rem;
     margin-bottom: 8px;
@@ -681,7 +696,6 @@ p   { line-height: 1.75; }
 ───────────────────────────────────────────── */
 .s-process {
     padding-block: var(--pad-section);
-    background: var(--cream);
 }
 .process-steps {
     display: flex;
@@ -711,7 +725,17 @@ p   { line-height: 1.75; }
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
 }
-.process-icon { font-size: 1.8rem; line-height: 1; }
+.process-icon {
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 4px;
+}
+.process-icon svg {
+    width: 40px;
+    height: 40px;
+}
 .process-step h3 {
     font-size: 1rem;
     color: var(--charcoal);
@@ -743,7 +767,6 @@ p   { line-height: 1.75; }
 ───────────────────────────────────────────── */
 .s-gallery {
     padding-block: var(--pad-section);
-    background: var(--white);
 }
 .gallery-grid {
     display: grid;
@@ -807,7 +830,6 @@ p   { line-height: 1.75; }
 ───────────────────────────────────────────── */
 .s-reviews {
     padding-block: var(--pad-section);
-    background: var(--cream);
 }
 .reviews-grid {
     display: grid;
@@ -973,7 +995,6 @@ p   { line-height: 1.75; }
 ───────────────────────────────────────────── */
 .s-contact {
     padding-block: var(--pad-section);
-    background: var(--cream);
 }
 .contact-layout {
     display: grid;
