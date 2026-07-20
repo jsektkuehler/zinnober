@@ -363,6 +363,18 @@ p   { line-height: 1.75; }
     z-index: 1;
 }
 
+/* Blur behind hero text so busy photos don't fight the copy */
+.hero-blur {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 42%, transparent 68%);
+            mask-image: linear-gradient(to right, #000 0%, #000 42%, transparent 68%);
+    pointer-events: none;
+}
+
 /* Content */
 .hero-body {
     position: absolute;
@@ -1202,6 +1214,10 @@ textarea { resize: vertical; min-height: 120px; }
     /* Hero */
     .hero-body { padding: 0 clamp(20px, 6vw, 48px); }
     .hero-slider-controls { bottom: 64px; }
+    .hero-blur {
+        -webkit-mask-image: linear-gradient(to right, #000 0%, #000 75%, transparent 95%);
+                mask-image: linear-gradient(to right, #000 0%, #000 75%, transparent 95%);
+    }
 
     /* Trust */
     .trust-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
