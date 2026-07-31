@@ -336,6 +336,8 @@
     const form = document.getElementById('contactForm');
     if (!form) return;
 
+    const ENDPOINT = 'https://formspree.io/f/mdaqwwlj';
+
     form.addEventListener('submit', e => {
         e.preventDefault();
 
@@ -351,20 +353,30 @@
             return;
         }
 
-        const TO      = 'hallo@zinnoberpizza.com';
-        const type    = form.eventType.value;
-        const subject = encodeURIComponent(`Catering-Anfrage – ${type} – ${form.name.value.trim()}`);
-        const body    = encodeURIComponent([
-            `Name: ${form.name.value.trim()}`,
-            `E-Mail: ${form.email.value.trim()}`,
-            form.phone.value    ? `Telefon: ${form.phone.value.trim()}`     : '',
-            form.guests.value   ? `Personen: ${form.guests.value}`           : '',
-            `Event-Art: ${type}`,
-            form.eventDate.value ? `Datum: ${form.eventDate.value}`          : '',
-            form.message.value  ? `\nNachricht:\n${form.message.value.trim()}` : '',
-        ].filter(Boolean).join('\n'));
+        const btn = form.querySelector('[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Wird gesendet…';
 
-        window.location.href = `mailto:${TO}?subject=${subject}&body=${body}`;
+        fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form),
+        })
+        .then(r => r.json().then(data => ({ ok: r.ok, data })))
+        .then(({ ok, data }) => {
+            if (ok) {
+                form.innerHTML = '<p class="form-success">Danke! Wir melden uns so schnell wie möglich bei dir.</p>';
+            } else {
+                btn.disabled = false;
+                btn.textContent = 'Anfrage senden';
+                alert(data?.errors?.map(e => e.message).join(', ') || 'Etwas ist schiefgelaufen. Bitte versuche es erneut.');
+            }
+        })
+        .catch(() => {
+            btn.disabled = false;
+            btn.textContent = 'Anfrage senden';
+            alert('Keine Verbindung. Bitte versuche es erneut.');
+        });
     });
 
     // Clear error state on input

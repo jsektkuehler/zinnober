@@ -1342,6 +1342,13 @@ input.is-error, select.is-error {
     border-color: var(--red);
     box-shadow: 0 0 0 3px rgba(158, 41, 43, 0.15);
 }
+.form-success {
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    text-align: center;
+    padding: clamp(32px, 6vw, 64px);
+    font-family: var(--font-display);
+}
 select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236A6A6A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
