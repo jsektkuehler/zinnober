@@ -416,6 +416,12 @@
                             <h3>Fritta</h3>
                             <p>Pfeffer-Paste, Fior di Latte, Bergkäse, Fritten, Champignons, Frühlingszwiebeln, Rauchpaprika</p>
                         </div>
+                        <div class="menu-card reveal" style="--reveal-delay: 60ms">
+                            <div class="menu-card-img"><img src="images/menu/verde.png" alt="Pizza Verde" loading="lazy"></div>
+                            <span class="menu-badge menu-badge--veggie"><svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 50 C14 30 30 14 50 14 C50 34 34 50 14 50 Z"></path><path d="M18 46 C28 36 38 26 46 18"></path></svg>Vegetarisch</span>
+                            <h3>Verde</h3>
+                            <p>Gebratene Zucchini, halb getrocknete Tomaten, Fior di Latte, Chimichurri</p>
+                        </div>
                     </div>
 
                 </div>
@@ -429,6 +435,17 @@
 
         </div>
     </section>
+
+    <!-- Pizza preview modal -->
+    <div class="pizza-modal" id="pizzaModal" role="dialog" aria-modal="true" aria-label="Pizza Vorschau" hidden>
+        <div class="pizza-modal-card">
+            <button class="pizza-modal-close" id="pizzaModalClose" aria-label="Schließen">&times;</button>
+            <div class="pizza-modal-img"><img id="pizzaModalImg" src="" alt=""></div>
+            <span class="menu-badge" id="pizzaModalBadge"></span>
+            <h3 class="pizza-modal-name" id="pizzaModalName"></h3>
+            <p class="pizza-modal-ingredients" id="pizzaModalIngredients"></p>
+        </div>
+    </div>
 
 
     <!-- =====================================================================

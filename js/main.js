@@ -274,6 +274,61 @@
 
 
 // ─────────────────────────────────────────────────────────────
+// 5b. Pizza Preview Modal – click a menu card for a larger view
+// ─────────────────────────────────────────────────────────────
+(function initPizzaModal() {
+    const modal     = document.getElementById('pizzaModal');
+    const modalImg  = document.getElementById('pizzaModalImg');
+    const modalName = document.getElementById('pizzaModalName');
+    const modalIng  = document.getElementById('pizzaModalIngredients');
+    const modalBadge = document.getElementById('pizzaModalBadge');
+    const modalClose = document.getElementById('pizzaModalClose');
+    const cards     = [...document.querySelectorAll('.menu-card')];
+    if (!modal || !cards.length) return;
+
+    function open(card) {
+        const img    = card.querySelector('.menu-card-img img');
+        const badge  = card.querySelector('.menu-badge');
+        const name   = card.querySelector('h3');
+        const ing    = card.querySelector('p');
+
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modalName.textContent = name ? name.textContent : '';
+        modalIng.textContent  = ing ? ing.textContent : '';
+        modalBadge.className  = badge ? badge.className : 'menu-badge';
+        modalBadge.innerHTML  = badge ? badge.innerHTML : '';
+
+        modal.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+        modalClose.focus();
+    }
+
+    function close() {
+        modal.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+        modalImg.src = '';
+    }
+
+    cards.forEach(card => {
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('click', () => open(card));
+        card.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(card); }
+        });
+    });
+
+    modalClose.addEventListener('click', close);
+    modal.addEventListener('click', e => { if (e.target === modal) close(); });
+    document.addEventListener('keydown', e => {
+        if (modal.hasAttribute('hidden')) return;
+        if (e.key === 'Escape') close();
+    });
+})();
+
+
+// ─────────────────────────────────────────────────────────────
 // 6. Contact Form – mailto fallback (replace with Formspree
 //    or a backend handler for production)
 // ─────────────────────────────────────────────────────────────
