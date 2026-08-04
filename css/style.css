@@ -105,15 +105,13 @@ body {
    CARDBOARD TEXTURE — applied to all warm sections
    Grain SVG + linen fibers + cream gradient stack
 ───────────────────────────────────────────── */
-/* Uniform cardboard photo — one fixed image spans Trust through Reviews
+/* Uniform cardboard photo — one fixed image spans Events through Contact
    so section boundaries never show up as separate crops */
-.s-trust,
 .s-events,
 .s-why,
 .s-process,
 .s-menu,
 .s-gallery,
-.s-reviews,
 .s-contact {
     background-color: var(--cream);
     background-image:
@@ -135,23 +133,39 @@ body {
     user-select: none;
     filter: drop-shadow(0 22px 32px rgba(0,0,0,0.20));
 }
-.section-bg-pizza--left {
-    left: clamp(-120px, -7vw, -40px);
-    top: 50%;
-    width: clamp(200px, 19vw, 320px);
-    transform: translateY(-52%) rotate(-9deg);
+/* Dough — sits inside the catering intro, reaching toward the headline.
+   Anchored to page-center (not the viewport edge) so the overlap with
+   the centered text column holds at any width. */
+.section-bg-pizza--dough {
+    left: calc(50% - 740px);
+    top: 30px;
+    width: 480px;
+    transform: rotate(-9deg);
     z-index: -1;
 }
-.section-bg-pizza--right {
-    right: clamp(-120px, -7vw, -40px);
-    top: 46%;
-    width: clamp(200px, 19vw, 320px);
-    transform: translateY(-48%) rotate(8deg);
+/* Sauce — bleeds up from the top of the Konzept section (on top of the
+   preceding Catering section), right side. */
+.section-bg-pizza--sauce {
+    left: calc(50% + 250px);
+    top: -230px;
+    width: 480px;
+    transform: rotate(8deg);
+    z-index: -1;
+}
+/* Fertig (finished pizza) — sits between the Konzept lead paragraph and
+   the "Was aus dem Ofen kommt" title, left side. Bled up from the menu
+   section (not Konzept) so it isn't clipped by the section boundary. */
+.section-bg-pizza--fertig {
+    left: calc(50% - 620px);
+    top: -217px;
+    width: 480px;
+    transform: rotate(-6deg);
     z-index: -1;
 }
 @media (max-width: 1400px) {
-    .section-bg-pizza--left,
-    .section-bg-pizza--right { display: none; }
+    .section-bg-pizza--dough,
+    .section-bg-pizza--sauce,
+    .section-bg-pizza--fertig { display: none; }
 }
 
 img  { max-width: 100%; display: block; }
@@ -517,45 +531,6 @@ body.legal-page .site-header {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Slider controls */
-.hero-slider-controls {
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-.slider-btn {
-    color: rgba(255,255,255,0.6);
-    font-size: 1.1rem;
-    width: 40px; height: 40px;
-    display: flex; align-items: center; justify-content: center;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    transition: var(--trans);
-    backdrop-filter: blur(4px);
-}
-.slider-btn:hover {
-    color: var(--white);
-    border-color: var(--white);
-    background: rgba(255,255,255,0.10);
-}
-.slider-dots { display: flex; gap: 8px; }
-.slider-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.36);
-    border: none; cursor: pointer;
-    transition: var(--trans); padding: 0;
-}
-.slider-dot.is-active {
-    background: var(--white);
-    transform: scale(1.5);
-}
-
 /* Scroll indicator */
 .scroll-indicator {
     position: absolute;
@@ -588,54 +563,13 @@ body.legal-page .site-header {
 
 
 /* ─────────────────────────────────────────────
-   3. TRUST BAR
-───────────────────────────────────────────── */
-.s-trust {
-    padding: clamp(32px, 5vw, 60px) var(--pad-x);
-    box-shadow: var(--shadow-sm);
-}
-.trust-inner {
-    max-width: var(--container);
-    margin-inline: auto;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-    align-items: center;
-    gap: 0;
-}
-.trust-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 4px;
-    padding-inline: clamp(12px, 3vw, 40px);
-}
-.trust-stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; line-height: 1; }
-.trust-icon  { color: var(--red); display: inline-flex; align-items: center; justify-content: center; }
-.trust-icon svg { width: 38px; height: 38px; }
-.trust-value {
-    font-family: var(--font-display);
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    font-weight: 700;
-    color: var(--charcoal);
-    line-height: 1.1;
-}
-.trust-label { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.04em; }
-.trust-divider {
-    width: 1px;
-    height: 48px;
-    background: var(--cream-dk);
-    flex-shrink: 0;
-}
-
-
-/* ─────────────────────────────────────────────
    4. EVENTS
 ───────────────────────────────────────────── */
 .s-events {
     position: relative;
     z-index: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
     padding-block: var(--pad-section);
 }
 
@@ -751,7 +685,8 @@ body.legal-page .site-header {
 .s-why {
     position: relative;
     z-index: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
     padding-block: var(--pad-section);
 }
 .why-layout {
@@ -870,6 +805,10 @@ body.legal-page .site-header {
    6b. PIZZA MENU
 ───────────────────────────────────────────── */
 .s-menu {
+    position: relative;
+    z-index: 0;
+    overflow-x: clip;
+    overflow-y: visible;
     padding-block: var(--pad-section);
 }
 .menu-slider {
@@ -933,20 +872,14 @@ body.legal-page .site-header {
 }
 .menu-card {
     text-align: center;
-    cursor: zoom-in;
     transition: transform var(--trans);
-}
-.menu-card:focus-visible {
-    outline: 2px solid var(--red);
-    outline-offset: 6px;
-    border-radius: var(--radius-sm);
 }
 .menu-card:hover {
     transform: translateY(-6px);
 }
 .menu-card-img {
     width: 100%;
-    max-width: 240px;
+    max-width: 300px;
     aspect-ratio: 1 / 1;
     margin: 0 auto 16px;
     filter: drop-shadow(0 14px 20px rgba(0,0,0,0.16));
@@ -1052,123 +985,6 @@ body.legal-page .site-header {
 .lightbox-close { top: 20px; right: 20px; font-size: 1.8rem; }
 .lightbox-prev  { left: 20px;  top: 50%; transform: translateY(-50%); }
 .lightbox-next  { right: 20px; top: 50%; transform: translateY(-50%); }
-
-/* Pizza preview modal */
-.pizza-modal {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.75);
-    z-index: 9999;
-    display: flex; align-items: center; justify-content: center;
-    padding: 24px;
-}
-.pizza-modal[hidden] { display: none; }
-.pizza-modal-card {
-    position: relative;
-    background: var(--cream);
-    border-radius: var(--radius);
-    max-width: 420px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: clamp(28px, 4vw, 40px);
-    text-align: center;
-    box-shadow: var(--shadow-md);
-}
-.pizza-modal-img {
-    width: clamp(200px, 40vw, 260px);
-    height: clamp(200px, 40vw, 260px);
-    margin: 0 auto 20px;
-}
-.pizza-modal-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-.pizza-modal-name {
-    font-size: 1.5rem;
-    color: var(--charcoal);
-    margin-bottom: 10px;
-}
-.pizza-modal-ingredients {
-    font-size: 1rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-}
-.pizza-modal-close {
-    position: absolute;
-    top: 16px; right: 16px;
-    width: 40px; height: 40px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
-    color: var(--charcoal);
-    font-size: 1.5rem;
-    background: rgba(0,0,0,0.06);
-    transition: background var(--trans);
-}
-.pizza-modal-close:hover { background: rgba(0,0,0,0.12); }
-
-
-/* ─────────────────────────────────────────────
-   8. REVIEWS
-───────────────────────────────────────────── */
-.s-reviews {
-    padding-block: var(--pad-section);
-}
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-.review-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: clamp(28px, 3vw, 40px);
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    transition: transform var(--trans), box-shadow var(--trans);
-}
-.review-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-.review-stars {
-    color: var(--gold);
-    font-size: 1rem;
-    letter-spacing: 3px;
-    line-height: 1;
-}
-.review-text {
-    color: var(--text);
-    font-size: 0.9375rem;
-    line-height: 1.75;
-    font-style: italic;
-    flex: 1;
-}
-.review-author {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-.review-avatar {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    overflow: hidden;
-}
-.review-avatar.img-ph { height: 44px; }
-.review-author strong {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--charcoal);
-    font-family: var(--font-display);
-}
-.review-author span {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-}
-
 
 /* ─────────────────────────────────────────────
    9. FAQ
@@ -1453,12 +1269,6 @@ textarea { resize: vertical; min-height: 120px; }
    RESPONSIVE – Tablet ≤1024px
 ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
-    .trust-inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-    }
-    .trust-divider { display: none; }
-
     .events-grid { grid-template-columns: repeat(2, 1fr); }
     .event-info-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -1467,8 +1277,6 @@ textarea { resize: vertical; min-height: 120px; }
         gap: 48px;
     }
     .why-text .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); }
-
-    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
 
     .contact-layout { grid-template-columns: 1fr; }
     .contact-info-col { padding-top: 0; }
@@ -1505,11 +1313,7 @@ textarea { resize: vertical; min-height: 120px; }
 
     /* Hero */
     .hero-body { padding: 0 clamp(20px, 6vw, 48px); }
-    .hero-slider-controls { bottom: 64px; }
     .hero-text-panel { padding: 24px clamp(20px, 5vw, 32px); }
-
-    /* Trust */
-    .trust-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
 
     /* Events */
     .events-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -1527,9 +1331,6 @@ textarea { resize: vertical; min-height: 120px; }
     .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
     .gallery-cell--wide { grid-column: span 2; }
 
-    /* Reviews */
-    .reviews-grid { grid-template-columns: 1fr; }
-
     /* Form */
     .form-row { grid-template-columns: 1fr; }
 
@@ -1543,7 +1344,6 @@ textarea { resize: vertical; min-height: 120px; }
    RESPONSIVE – Small ≤480px
 ───────────────────────────────────────────── */
 @media (max-width: 480px) {
-    .trust-inner { grid-template-columns: 1fr; gap: 24px; }
     .event-info-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
     .gallery-cell--tall { grid-row: span 1; }
