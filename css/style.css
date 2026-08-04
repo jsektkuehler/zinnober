@@ -635,6 +635,7 @@ body.legal-page .site-header {
 .s-events {
     position: relative;
     z-index: 0;
+    overflow-x: hidden;
     padding-block: var(--pad-section);
 }
 
@@ -750,6 +751,7 @@ body.legal-page .site-header {
 .s-why {
     position: relative;
     z-index: 0;
+    overflow-x: hidden;
     padding-block: var(--pad-section);
 }
 .why-layout {
