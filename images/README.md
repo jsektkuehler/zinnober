@@ -2,28 +2,19 @@
 
 Add your high-resolution photos here. Recommended minimum: **1920 × 1080 px**.
 
-## Hero Slider (5 photos)
+## Hero (1 photo)
 | File | Description |
 |---|---|
-| `slide1.jpg` | Hero photo 1 (shown first) |
-| `slide2.jpg` | Hero photo 2 |
-| `slide3.jpg` | Hero photo 3 |
-| `slide4.jpg` | Hero photo 4 |
-| `slide5.jpg` | Hero photo 5 |
+| `slide-buffet.jpg` | Static hero background |
 
-## Gallery (6 photos)
+## Gallery (11 photos)
 | File | Description |
 |---|---|
-| `gallery1.jpg` | Gallery – large tile (spans 2 columns) |
-| `gallery2.jpg` | Gallery photo |
-| `gallery3.jpg` | Gallery photo |
-| `gallery4.jpg` | Gallery photo |
-| `gallery5.jpg` | Gallery – large tile (spans 2 columns) |
-| `gallery6.jpg` | Gallery photo |
+| `gallery-01.jpg` … `gallery-11.jpg` | Gallery photos, shown in a fixed masonry layout (see `.gallery-cell--tall`/`.gallery-cell--wide` in `css/style.css` and the grid markup in `index.html` for which slots are large tiles) |
 
-## Konzept Section (1 photo)
+## Menu (per-pizza photos)
 | File | Description |
 |---|---|
-| `konzept.jpg` | Concept/process photo (e.g. dough, oven, ingredients) |
+| `menu/*.png` | One photo per pizza, referenced by name in the Pizzen section of `index.html` |
 
-> **Tip:** Export JPEGs at ~85% quality for a good size/quality balance. For GitHub Pages, keep each file under ~500 KB where possible.
+> **Tip:** Export JPEGs/WebP at ~85% quality for a good size/quality balance. For GitHub Pages, keep each file under ~500 KB where possible.

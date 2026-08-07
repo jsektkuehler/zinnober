@@ -1,0 +1,10 @@
+# Raw/source photo exports — convert to optimized .jpg/.webp before committing
+*.HEIC
+*.heic
+
+# Vector design sources — keep locally, not needed by the deployed site
+*.eps
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

@@ -1,6 +1,6 @@
 /* =============================================================================
    ZINNOBER PIZZA — Main JavaScript
-   Modules: nav · hero slider · scroll reveal · faq · gallery lightbox · form
+   Modules: nav · scroll reveal · faq · gallery lightbox · form
 ============================================================================= */
 
 'use strict';
@@ -37,69 +37,6 @@
             toggle.setAttribute('aria-expanded', 'false');
         }
     });
-})();
-
-
-// ─────────────────────────────────────────────────────────────
-// 2. Hero Slider – auto-advance, dots, prev/next, touch/swipe
-// ─────────────────────────────────────────────────────────────
-(function initHeroSlider() {
-    const slides      = document.querySelectorAll('.hero-slide');
-    const dotsWrap    = document.getElementById('sliderDots');
-    const btnPrev     = document.getElementById('sliderPrev');
-    const btnNext     = document.getElementById('sliderNext');
-    if (slides.length <= 1 || !dotsWrap) return;
-
-    const INTERVAL = 5800;
-    let current    = 0;
-    let timer      = null;
-    let touchX     = 0;
-
-    // Build dots
-    slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className   = 'slider-dot' + (i === 0 ? ' is-active' : '');
-        dot.setAttribute('aria-label', `Bild ${i + 1}`);
-        dot.setAttribute('role', 'tab');
-        dot.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(dot);
-    });
-
-    const getDots = () => dotsWrap.querySelectorAll('.slider-dot');
-
-    function goTo(idx) {
-        slides[current].classList.remove('active');
-        getDots()[current].classList.remove('is-active');
-        current = (idx + slides.length) % slides.length;
-        slides[current].classList.add('active');
-        getDots()[current].classList.add('is-active');
-    }
-
-    function next() { goTo(current + 1); }
-    function prev() { goTo(current - 1); }
-
-    function startTimer() { clearInterval(timer); timer = setInterval(next, INTERVAL); }
-    function stopTimer()  { clearInterval(timer); }
-
-    if (btnNext) btnNext.addEventListener('click', () => { next(); startTimer(); });
-    if (btnPrev) btnPrev.addEventListener('click', () => { prev(); startTimer(); });
-
-    const hero = document.querySelector('.s-hero');
-    if (hero) {
-        hero.addEventListener('mouseenter', stopTimer);
-        hero.addEventListener('mouseleave', startTimer);
-        hero.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
-        hero.addEventListener('touchend', e => {
-            const d = touchX - e.changedTouches[0].clientX;
-            if (Math.abs(d) > 44) { d > 0 ? next() : prev(); startTimer(); }
-        }, { passive: true });
-        hero.addEventListener('keydown', e => {
-            if (e.key === 'ArrowRight') { next(); startTimer(); }
-            if (e.key === 'ArrowLeft')  { prev(); startTimer(); }
-        });
-    }
-
-    startTimer();
 })();
 
 
@@ -238,7 +175,7 @@
         currentIdx = idx;
         const src = cells[idx].dataset.src;
         lbImg.src = src;
-        lbImg.alt = cells[idx].getAttribute('aria-label') || '';
+        lbImg.alt = cells[idx].querySelector('img')?.alt || '';
         lightbox.removeAttribute('hidden');
         document.body.style.overflow = 'hidden';
         lbClose.focus();
@@ -351,18 +288,3 @@
 })();
 
 
-// ─────────────────────────────────────────────────────────────
-// 8. Smooth background image loading for gallery cells
-//    (replaces placeholder once real image is available)
-// ─────────────────────────────────────────────────────────────
-(function loadGalleryImages() {
-    document.querySelectorAll('.gallery-cell[data-src]').forEach(cell => {
-        const src = cell.dataset.src;
-        const img = new Image();
-        img.onload = () => {
-            cell.style.backgroundImage = `url('${src}')`;
-            cell.querySelector('.img-ph')?.remove();
-        };
-        img.src = src;
-    });
-})();
